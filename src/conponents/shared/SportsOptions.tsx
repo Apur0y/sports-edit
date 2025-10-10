@@ -10,7 +10,7 @@ const sports = [
 
 export default function SportsOptions() {
   return (
-    <section className="grid grid-cols-2 sm:grid-cols-4 gap-6 p-8 bg-[#0d1117] text-white">
+    <section className="grid grid-cols-2 sm:grid-cols-4 gap-6 p-8 bg-[#0d1117] text-white w-f">
       {sports.map((s) => (
         <div key={s.name} className="flex flex-col items-center justify-center p-6 bg-[#161b22] rounded-xl hover:bg-[#1f2937] cursor-pointer transition">
           <div className="text-4xl mb-2">{s.icon}</div>
