@@ -1,10 +1,15 @@
 // components/Banner.tsx
 "use client";
 import Image from "next/image";
-import { GiHumanTarget } from "react-icons/gi";
+import { FaFutbol, FaBasketballBall, FaGolfBall, FaFootballBall } from "react-icons/fa";
 
 export default function Banner() {
-  const sports = ["Soccer", "Rugby", "Golf", "Basketball", "Baseball"];
+  const sports = [
+  { name: "Soccer", icon: <FaFutbol /> },
+  { name: "Basketball", icon: <FaBasketballBall /> },
+  { name: "Golf", icon: <FaGolfBall /> },
+  { name: "Rugby", icon: <FaFootballBall /> },
+];
 
   return (
     <section className="relative h-[80vh] w-full overflow-hidden">
@@ -23,18 +28,20 @@ export default function Banner() {
         </h1>
       </div>
 
-      <div className="absolute bottom-0 py-4 w-full flex justify-around gap-4 bg-neutral-900 space-x-3">
-        {sports.map((sport) => (
-          <div key={sport} className="flex items-center">
-            <p><GiHumanTarget className="size-8"/></p>
-            <button className="px-5 py-2  rounded-lg cursor-pointer hover:text-blue-700 transition text-start">
-              <h1 className="text-xl font-semibold">{sport}</h1>
-              <p>Check out this sports video</p>
-            </button>
-          </div>
-        ))}
-        
-      </div>
+   <div className="absolute bottom-0 py-4 w-full flex justify-around gap-4 bg-neutral-900 px-6">
+      {sports.map((sport) => (
+        <div key={sport.name} className="flex items-center gap-3">
+          {/* Icon */}
+          <div className="text-3xl text-white">{sport.icon}</div>
+
+          {/* Button */}
+          <button className="px-5 py-2 rounded-lg cursor-pointer hover:text-blue-400 transition text-start">
+            <h1 className="text-xl font-semibold">{sport.name}</h1>
+            <p className="text-sm text-gray-300">Check out this sports video</p>
+          </button>
+        </div>
+      ))}
+    </div>
     </section>
   );
 }
