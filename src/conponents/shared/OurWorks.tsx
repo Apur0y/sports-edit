@@ -51,7 +51,7 @@ export default function OurWorks() {
       : videos.filter((v) => v.sport === selectedSport);
 
   return (
-    <section className="w-full py-16 ">
+    <section className="w-full py-16 bg-emerald-950/20">
       <div className="max-w-6xl mx-auto px-4 text-center">
         <div >
           <h2 className="text-3xl md:text-4xl font-bold  ">Our Works Gallery</h2>
@@ -59,7 +59,7 @@ export default function OurWorks() {
         </div>
 
         {/* Sports Filter Buttons */}
-        <div className="flex flex-wrap justify-start gap-3 mb-10">
+        <div className="flex flex-wrap justify-start gap-3 my-10">
           {sports.map((sport) => (
             <button
               key={sport}
@@ -77,11 +77,11 @@ export default function OurWorks() {
         </div>
 
         {/* Video Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {filteredVideos.map((video) => (
             <div
               key={video.id}
-              className="bg-white rounded-2xl shadow hover:shadow-lg transition overflow-hidden"
+              className="bg-blue-900/20 rounded- shadow hover:shadow-lg transition overflow-hidden h-full"
             >
               <div className="aspect-video">
                 <iframe
@@ -91,12 +91,13 @@ export default function OurWorks() {
                   className="w-full h-full object-cover"
                 />
               </div>
-              <div className="p-4 text-left">
-                <h3 className="text-lg font-semibold text-gray-800">
+              <div className="px-4 py-2 text-left">
+                <h3 className="text-md font-semibold text-nowrap">
                   {video.title}
                 </h3>
                 <p className="text-sm text-gray-500 mt-1">{video.sport}</p>
               </div>
+              
             </div>
           ))}
         </div>

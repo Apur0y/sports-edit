@@ -26,7 +26,7 @@ export default function Packages() {
   ];
 
   return (
-    <section id="packages" className="py-20 bg-gradient-to-b from-gray-900 to-gray-800 text-white">
+    <section id="packages" className="py-20 bg-emerald-950/20 text-white">
       <h2 className="text-4xl font-bold mb-12 text-center">Our Packages</h2>
 
       <div className="flex flex-wrap justify-center gap-10">
