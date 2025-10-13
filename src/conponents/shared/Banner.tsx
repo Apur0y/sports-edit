@@ -28,14 +28,14 @@ export default function Banner() {
         </h1>
       </div>
 
-   <div className="absolute bottom-0 py-4 w-full flex justify-around gap-4 bg-neutral-900 px-6">
+   <div className="absolute bottom-0  w-full flex justify-around gap-4 bg-neutral-900 px-6">
       {sports.map((sport) => (
-        <div key={sport.name} className="flex items-center gap-3">
+        <div key={sport.name} className="flex items-center gap-3 hover:bg-blue-600/20 p-3 transition-all duration-300">
           {/* Icon */}
           <div className="text-3xl text-white">{sport.icon}</div>
 
           {/* Button */}
-          <button className="px-5 py-2 rounded-lg cursor-pointer hover:text-blue-400 transition text-start">
+          <button className="px-5 py-2 rounded-lg cursor-pointer  transition text-start">
             <h1 className="text-xl font-semibold">{sport.name}</h1>
             <p className="text-sm text-gray-300">Check out this sports video</p>
           </button>

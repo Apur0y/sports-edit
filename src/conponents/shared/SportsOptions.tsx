@@ -6,6 +6,7 @@ const sports = [
   { name: "Basketball", icon: <FaBasketballBall /> },
   { name: "Golf", icon: <FaGolfBall /> },
   { name: "Rugby", icon: <FaFootballBall /> },
+  { name: "Rugby", icon: <FaFootballBall /> },
 ];
 
 export default function SportsOptions() {
