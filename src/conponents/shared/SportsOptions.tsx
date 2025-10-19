@@ -7,6 +7,7 @@ import {
 } from "react-icons/fa";
 import { GiBugNet } from "react-icons/gi";
 import { PiPersonSimpleBikeBold } from "react-icons/pi";
+import ComponentHeader from "../Reuseable/Header";
 
 const sports = [
   {
@@ -45,6 +46,10 @@ const sports = [
 
 export default function SportsOptions() {
   return (
+
+    <div className="my-12">
+
+
     <section className="grid grid-cols-2 sm:grid-cols-6 bg-[#0d1117] text-white w-full minh-sc">
       {sports.map((s) => (
         <div
@@ -72,5 +77,6 @@ export default function SportsOptions() {
         </div>
       ))}
     </section>
+    </div>
   );
 }

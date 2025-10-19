@@ -1,5 +1,6 @@
 "use client";
 import React from "react";
+import ComponentHeader from "../Reuseable/Header";
 
 type Video = {
   id: number;
@@ -46,17 +47,7 @@ export default function OurWorks() {
   return (
     <section className="w-full py-16 bg-white text-black">
       <div className="container mx-auto px-4 text-center">
-        <div className="flex justify-center items-stretch gap-6 mb-5 h-full">
-          <div className="w-1/4 opacity-40 bg-[repeating-linear-gradient(45deg,_#0000ff_0px,_#0000ff_0px,_transparent_1px,_transparent_4px)]  " />
-          <div>
-            <h2 className="text-3xl md:text-5xl font-bold uppercase  scale-x-[0.85]">
-              Works Gallery
-            </h2>
-            <p className="my-1 text-sm uppercase">Check out top works</p>
-          </div>
-          <div className="w-1/4 opacity-40 bg-[repeating-linear-gradient(45deg,_#0000ff_0px,_#0000ff_0px,_transparent_1px,_transparent_4px)]  " />
-        </div>
-
+        <ComponentHeader title="Works Gallery" text="Check out top works"/>
         {/* Sports Filter Buttons */}
         {/* <div className="flex flex-wrap justify-start gap-3 my-10">
           {sports.map((sport) => (
@@ -102,7 +93,7 @@ export default function OurWorks() {
 
         {/* View All Button */}
         <div className="mt-10">
-          <button className="px-8 py-3 bg-blue-600 text-white rounded-full font-medium hover:bg-blue-700 transition">
+          <button className="px-8 py-3 border border-black text-black cursor-pointer hover:text-white hover:border-blue-700 transition  font-medium hover:bg-blue-700 transition">
             View All Works
           </button>
         </div>
