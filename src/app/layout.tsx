@@ -1,16 +1,14 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Raleway } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/conponents/shared/Navbar";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+// Load Raleway font
+const raleway = Raleway({
   subsets: ["latin"],
+  variable: "--font-raleway",
+  weight: ["400", "500", "600", "700"], // optional weights
 });
 
 export const metadata: Metadata = {
@@ -26,9 +24,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-green-950/20`}
+        className={`${raleway.variable} font-sans antialiased bg-green-950/20`}
+        style={{ fontFamily: "'Raleway', sans-serif" }}
       >
-        <Navbar/>
+        <Navbar />
         {children}
       </body>
     </html>

@@ -9,9 +9,9 @@ import SportsOptions from "@/conponents/shared/SportsOptions";
 export default function HomePage() {
   return (
     <main>
-      <Navbar />
+      
       <Banner />
-      {/* <SportsOptions /> */}
+      <SportsOptions />
       <OurWorks/>
       <Packages />
       {/* <MdReviews /> */}

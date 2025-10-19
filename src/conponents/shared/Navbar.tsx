@@ -26,17 +26,17 @@ export default function Navbar() {
   ];
 
   return (
-    <nav className="sticky top-0 left-0 w-full z-50 bg-neutral-900 bg-opacity-80 text-white shadow-lg">
-      <div className="max-w-7xl mx-auto px-6 flex justify-between items-center h-16">
+    <nav className="sticky top-0 left-0 w-full z-50 bg-neutral-700/90 bg-opacity-80 text-white shadow-lg">
+      <div className="container mx-auto px-6 flex justify-between items-center h-16">
         {/* Logo */}
-        <Link href="/" className="text-2xl font-bold tracking-wide">
-         Sports Edit
+        <Link href="/" className="text-4xl font-bold tracking-wide uppercase">
+         Sports
         </Link>
 
         {/* Desktop Menu */}
         <ul className="hidden md:flex gap-6 items-center">
           {menuLinks.map((link) => (
-            <li key={link.name} className="hover:text-blue-400 transition">
+            <li key={link.name} className="hover:text-blue-400 hover:underline transition">
               <Link href={link.href}>{link.name}</Link>
             </li>
           ))}

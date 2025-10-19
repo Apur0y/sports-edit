@@ -59,7 +59,7 @@ export default function OurWorks() {
         </div>
 
         {/* Sports Filter Buttons */}
-        <div className="flex flex-wrap justify-start gap-3 my-10">
+        {/* <div className="flex flex-wrap justify-start gap-3 my-10">
           {sports.map((sport) => (
             <button
               key={sport}
@@ -74,7 +74,7 @@ export default function OurWorks() {
               {sport}
             </button>
           ))}
-        </div>
+        </div> */}
 
         {/* Video Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
