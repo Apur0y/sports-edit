@@ -2,9 +2,10 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay } from "swiper/modules";
+import { Autoplay, Navigation } from "swiper/modules";
 import "swiper/css";
 import { AnimatePresence, motion } from "framer-motion";
+import "swiper/css/navigation";
 import { useState } from "react";
 import {
   FaFutbol,
@@ -20,7 +21,6 @@ export default function Banner() {
     "https://dtwhistledev.wpengine.com/wp-content/uploads/2015/12/swim-bg.jpg",
     "https://images.pexels.com/photos/399187/pexels-photo-399187.jpeg",
     "https://dtwhistledev.wpengine.com/wp-content/uploads/2015/12/para-surf.jpg",
-    
   ];
 
   const sports = [
@@ -34,13 +34,14 @@ export default function Banner() {
   const [activeIndex, setActiveIndex] = useState(0);
 
   return (
-    <section className="relative h-[80vh] w-full overflow-hidden">
+    <section className="relative h-[90vh] w-full overflow-hidden">
       <Swiper
-        modules={[Autoplay]}
-        autoplay={{ delay: 4000, disableOnInteraction: false }}
+        modules={[Autoplay, Navigation]}
+        autoplay={{ delay: 5000, disableOnInteraction: false }}
         loop={true}
         onSlideChange={(swiper) => setActiveIndex(swiper.realIndex)}
         className="h-full"
+        navigation={true}
       >
         {slides.map((src, i) => (
           <SwiperSlide key={i}>
@@ -87,14 +88,15 @@ export default function Banner() {
                   }}
                   className="text-6xl md:text-7xl font-bold tracking-wide uppercase"
                 >
-                  Make the Play <br /> <span className="text-blue-500">At Its Best</span> 
+                  Make the Play <br />{" "}
+                  <span className="text-blue-500">At Its Best</span>
                 </motion.h1>
 
                 <motion.p
                   key={`para-${activeIndex}`} // re-trigger paragraph animation
-                  initial={{ y: 50, opacity: 0 }}
-                  animate={{ y: 0, opacity: 1 }}
-                  transition={{ duration: 1, delay: 0.8 }}
+                  initial={{ y: 50, opacity: 0, scale: 0.9 }} // ⬅️ start slightly smaller
+                  animate={{ y: 0, opacity: 1, scale: 1 }} // ⬅️ grow to normal size
+                  transition={{ duration: 0.3, delay: 2 }}
                   className="mt-4 text-lg md:text-xl text-gray-200 max-w-2xl"
                 >
                   Experience next-level sports highlights crafted with passion

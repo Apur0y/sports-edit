@@ -1,15 +1,15 @@
 import type { Metadata } from "next";
-import { Raleway } from "next/font/google";
+import { Roboto_Condensed } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/conponents/shared/Navbar";
 
 
-// Load Raleway font
-const raleway = Raleway({
-  subsets: ["latin"],
-  variable: "--font-raleway",
-  weight: ["400", "500", "600", "700"], // optional weights
-});
+
+const roboto = Roboto_Condensed({
+  subsets: ["cyrillic"],
+  variable: "--font-condensed",
+})
+
 
 export const metadata: Metadata = {
   title: "Sports Edit",
@@ -24,8 +24,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${raleway.variable} font-sans antialiased bg-green-950/20`}
-        style={{ fontFamily: "'Raleway', sans-serif" }}
+        className={`${roboto.variable} font-sans antialiased`}
       >
         <Navbar />
         {children}
