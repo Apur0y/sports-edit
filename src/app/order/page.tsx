@@ -1,6 +1,6 @@
 // app/order/page.tsx
 "use client";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function OrderPage() {
   const [form, setForm] = useState({
@@ -14,6 +14,15 @@ export default function OrderPage() {
     e.preventDefault();
     alert("Order submitted successfully!");
   };
+
+  useEffect(()=>{
+ setForm({
+    sport: "",
+    intro: "",
+    effects: [],
+    deliveryDate: "",
+  })
+  },[])
 
   return (
     <div className="min-h-screen bg-gray-100 flex justify-center items-center py-10">

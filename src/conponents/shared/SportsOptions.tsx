@@ -7,7 +7,6 @@ import {
 } from "react-icons/fa";
 import { GiBugNet } from "react-icons/gi";
 import { PiPersonSimpleBikeBold } from "react-icons/pi";
-import ComponentHeader from "../Reuseable/Header";
 
 const sports = [
   {

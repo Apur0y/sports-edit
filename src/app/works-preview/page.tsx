@@ -1,4 +1,5 @@
 "use client";
+import Image from "next/image";
 import React, { useState } from "react";
 
 type Video = {
@@ -99,9 +100,11 @@ export default function Page() {
                     : "hover:bg-gray-100"
                 }`}
               >
-                <img
+                <Image
                   src={video.thumbnail}
                   alt={video.title}
+                  height={700}
+                  width={700}
                   className="w-24 h-16 rounded-lg object-cover"
                 />
                 <div className="flex-1">

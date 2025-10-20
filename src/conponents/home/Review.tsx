@@ -97,7 +97,7 @@ const TestimonialsSection: FC = () => {
           <div className="space-y-6 overflow-y-auto max-h-[500px] pr-2 scroll-smooth scroll-p-4 relative">
             <div className="flex items-center justify-between bg-white sticky top-0 w-full px-4 py-3 shadow-md z-10">
               <h1 className="text-black text-2xl font-semibold">
-                Noyan's Review
+                Noyan&apos;s Review
               </h1>
               <Link
                 href="https://www.fiverr.com/nayan_1997?source=gig_cards&referrer_gig_slug=edit-your-player-recruiting-video-sports-highlight-video&ref_ctx_id=89425b285e39469593e76b38f3948fdd&imp_id=f8d17b6b-865d-4ee1-bf47-66bfd490effe"
@@ -117,7 +117,7 @@ const TestimonialsSection: FC = () => {
           <div className="space-y-6 overflow-y-auto max-h-[500px] pl-2 scroll-smooth scroll-p-4">
             <div className="flex items-center justify-between bg-white sticky top-0 w-full px-4 py-3 shadow-md z-10">
               <h1 className="text-black text-2xl font-semibold">
-                Apu's Review
+                Apu&lsquo;s Review
               </h1>
               <Link
                 href="https://www.fiverr.com/apuroy56?public_mode=true"
@@ -159,7 +159,7 @@ const TestimonialCard: FC<TestimonialCardProps> = ({ testimonial }) => {
       </div>
 
       {/* Comment */}
-      <p className="text-gray-700 italic mb-6">"{comment}"</p>
+      <p className="text-gray-700 italic mb-6">&quot;{comment}&quot;</p>
 
       {/* Footer: Name, Company, Date */}
       <div className="flex justify-between items-end text-sm text-gray-600">

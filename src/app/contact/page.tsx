@@ -4,8 +4,6 @@ import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import {
   Mail,
-  Phone,
-  MapPin,
   Calendar,
   MessageCircle,
   Star,
@@ -123,10 +121,10 @@ export default function ContactPage() {
               transition={{ duration: 0.8 }}
             >
               <h1 className="text-5xl lg:text-7xl font-bold mb-6 bg-gradient-to-r from-white to-gray-400 bg-clip-text text-transparent">
-                Let's Talk
+                Let&lsquo;s Talk
               </h1>
               <p className="text-xl lg:text-2xl text-gray-300 mb-8 leading-relaxed">
-                Ready to bring your ideas to life? Let's create something
+                Ready to bring your ideas to life? Let&apos;s create something
                 amazing together. Choose your preferred way to connect.
               </p>
 
@@ -142,7 +140,7 @@ export default function ContactPage() {
                   className="group bg-gradient-to-r from-blue-600 to-purple-600 px-8 py-4 rounded-2xl font-semibold text-lg inline-flex items-center gap-3 hover:shadow-2xl hover:shadow-blue-500/25 transition-all duration-300"
                 >
                   <Calendar className="w-5 h-5" />
-                  Book a Free Consultation
+                  Book a Meeting
                   <div className="w-0 group-hover:w-5 transition-all duration-300 overflow-hidden">
                     ↗
                   </div>
