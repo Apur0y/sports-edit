@@ -1,7 +1,5 @@
 
-
 import AboutUs from "@/conponents/home/AboutUs";
-import ReviewSection from "@/conponents/home/Review";
 import Banner from "@/conponents/shared/Banner";
 import FloatingButtons from "@/conponents/shared/FloatingButtons";
 import Footer from "@/conponents/shared/Footer";
