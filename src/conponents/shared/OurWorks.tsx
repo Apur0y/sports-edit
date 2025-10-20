@@ -45,7 +45,7 @@ const videos: Video[] = [
 export default function OurWorks() {
 
   return (
-    <section className="w-full py-16 bg-white text-black">
+    <section className="w-full container py-32 bg-white text-black ">
       <div className="container mx-auto px-4 text-center">
         <ComponentHeader title="Works Gallery" text="Check out top works"/>
         {/* Sports Filter Buttons */}
@@ -67,7 +67,7 @@ export default function OurWorks() {
         </div> */}
 
         {/* Video Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-14">
           {videos.map((video) => (
             <div
               key={video.id}
@@ -93,7 +93,7 @@ export default function OurWorks() {
 
         {/* View All Button */}
         <div className="mt-10">
-          <button className="px-8 py-3 border border-black text-black cursor-pointer hover:text-white hover:border-blue-700 transition  font-medium hover:bg-blue-700 transition">
+          <button className="px-8 py-3 border border-black text-black cursor-pointer hover:text-white hover:border-primary transition  font-medium hover:bg-primary">
             View All Works
           </button>
         </div>

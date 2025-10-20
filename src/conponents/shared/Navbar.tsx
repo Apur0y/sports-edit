@@ -36,7 +36,7 @@ export default function Navbar() {
         {/* Desktop Menu */}
         <ul className="hidden md:flex gap-6 items-center">
           {menuLinks.map((link) => (
-            <li key={link.name} className="hover:text-blue-400 hover:underline transition">
+            <li key={link.name} className="hover:text-blue-400 hover:underline transition uppercase text-sm font-semibold">
               <Link href={link.href}>{link.name}</Link>
             </li>
           ))}

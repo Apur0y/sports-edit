@@ -13,6 +13,12 @@
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-condensed: 'Roboto Condensed', sans-serif;
+ 
+}
+
+@theme {
+  --color-primary: #0DA1FF;
+  
 }
 
 @media (prefers-color-scheme: dark) {

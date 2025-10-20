@@ -70,7 +70,7 @@ export default function Banner() {
               {/* <div className="absolute inset-0 bg-black/40"></div> */}
 
               {/* Text animation */}
-              <div className="absolute  flex flex-col items-center justify-center text-center text-white px-6 left-0 bottom-1/2 top-70">
+              <div className="absolute  flex flex-col items-center justify-center text-center text-white px-6 left-10 bottom-1/2 top-70">
                 <motion.h1
                   key={`title-${activeIndex}`} // re-trigger animation per slide
                   initial={{ rotateX: 90, x: 100, opacity: 0 }} // start flipped & right-shifted
