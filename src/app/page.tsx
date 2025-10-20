@@ -18,7 +18,6 @@ export default function HomePage() {
       <SportsOptions />
       <OurWorks/>
      <AboutUs/>
-     <ReviewSection/>
  
       <FloatingButtons />
       <Packages />

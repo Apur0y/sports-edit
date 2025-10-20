@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import TestimonialsSection from './Review';
 interface Owner {
   name: string;
   title: string;
@@ -26,7 +27,7 @@ const owners: Owner[] = [
 export default function AboutUs() {
   return (
     <div className=" bg-fixed bg-center bg-cover bg-no-repeat" style={{ backgroundImage: "url('/multisports.png')" }}>
-      <div className="h-full w-full flex items-center justify-center bg-black/70 text-white py-32">
+      <div className="h-full w-full flex items-center justify-center bg-black/70 text-white pt-32">
           <div className="max-w-6xl mx-auto text-center text-white">
           <div className="grid gap-10 md:grid-cols-2">
             {owners.map((owner, index) => (
@@ -50,7 +51,9 @@ export default function AboutUs() {
           </div>
         </div>
       </div>
-      
+      <div className="h-full w-full flex items-center justify-center bg-black/70 text-white pb-32">
+      <TestimonialsSection/>
+      </div>
     </div>
   );
 }
