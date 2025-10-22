@@ -17,7 +17,7 @@ export default function HomePage() {
       <OurWorks/>
      <AboutUs/>
  
-      <FloatingButtons />
+      {/* <FloatingButtons /> */}
       <Packages />
       <Footer/>
     </main>

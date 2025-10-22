@@ -26,6 +26,7 @@ export default function RootLayout({
       <body
         className={`${roboto.variable} font-sans antialiased`}
       >
+        
         <Navbar />
         {children}
       </body>

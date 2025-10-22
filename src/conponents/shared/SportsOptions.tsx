@@ -46,14 +46,14 @@ const sports = [
 export default function SportsOptions() {
   return (
 
-    <div className="my-12">
+    <div>
 
 
-    <section className="grid grid-cols-2 sm:grid-cols-6 bg-[#0d1117] text-white w-full minh-sc">
+    <section className="grid grid-cols-2 sm:grid-cols-6 bg-[#0d1117] text-white w-full ">
       {sports.map((s) => (
         <div
           key={s.name}
-          className="relative group h-40 sm:h-48 cursor-pointer"
+          className="relative group h-20 sm:h-32 cursor-pointer"
         >
           {/* Background Image */}
           <div

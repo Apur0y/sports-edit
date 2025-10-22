@@ -18,9 +18,8 @@ export default function Banner() {
   const slides = [
     "https://images.pexels.com/photos/46798/the-ball-stadion-football-the-pitch-46798.jpeg",
     "https://dtwhistledev.wpengine.com/wp-content/uploads/2015/12/rugby.jpg",
-    "https://dtwhistledev.wpengine.com/wp-content/uploads/2015/12/swim-bg.jpg",
+
     "https://images.pexels.com/photos/399187/pexels-photo-399187.jpeg",
-    "https://dtwhistledev.wpengine.com/wp-content/uploads/2015/12/para-surf.jpg",
   ];
 
   const sports = [
@@ -34,7 +33,7 @@ export default function Banner() {
   const [activeIndex, setActiveIndex] = useState(0);
 
   return (
-    <section className="relative h-[90vh] w-full overflow-hidden">
+    <section className="relative h-[72vh] w-full overflow-hidden">
       <Swiper
         modules={[Autoplay, Navigation]}
         autoplay={{ delay: 5000, disableOnInteraction: false }}
@@ -109,7 +108,7 @@ export default function Banner() {
       </Swiper>
 
       {/* Sports category bar */}
-      <div className="absolute bottom-0 w-full flex justify-around gap-4 bg-emerald-950/90 px-6 py-3">
+      {/* <div className="absolute bottom-0 w-full flex justify-around gap-4 bg-emerald-950/90 px-6 py-3">
         {sports.map((sport) => (
           <Link key={sport.name} href="/works-preview">
             <div className="flex items-center gap-3 hover:bg-white/20 px-4 py-2 rounded-lg transition-all duration-300 cursor-pointer">
@@ -125,7 +124,7 @@ export default function Banner() {
             </div>
           </Link>
         ))}
-      </div>
+      </div> */}
     </section>
   );
 }

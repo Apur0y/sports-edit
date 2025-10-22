@@ -2,12 +2,8 @@
 
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-import {
-  Mail,
-  Calendar,
-  MessageCircle,
-  Star,
-} from "lucide-react";
+import { Mail, Calendar, MessageCircle, Star } from "lucide-react";
+import { TbBrandFiverr } from "react-icons/tb";
 
 export default function ContactPage() {
   const [ref, inView] = useInView({
@@ -17,21 +13,12 @@ export default function ContactPage() {
 
   const contactMethods = [
     {
-      icon: <MessageCircle className="w-6 h-6" />,
-      platform: "WhatsApp",
-      value: "+8801XXXXXXXXX",
-      href: "https://wa.me/8801XXXXXXXXX",
-      color: "text-green-400",
-      bgColor: "bg-green-400/10",
-      description: "Quick responses",
-    },
-    {
-      icon: <Star className="w-6 h-6" />,
+      icon: <TbBrandFiverr className="w-6 h-6" />,
       platform: "Fiverr",
       value: "Visit Profile",
       href: "https://fiverr.com/yourprofile",
-      color: "text-yellow-400",
-      bgColor: "bg-yellow-400/10",
+      color: "text-green-400",
+      bgColor: "bg-green-400/10",
       description: "Professional services",
     },
     {
@@ -43,6 +30,7 @@ export default function ContactPage() {
       bgColor: "bg-blue-400/10",
       description: "Detailed inquiries",
     },
+
     {
       icon: <MessageCircle className="w-6 h-6" />,
       platform: "Instagram",
@@ -51,6 +39,15 @@ export default function ContactPage() {
       color: "text-pink-400",
       bgColor: "bg-pink-400/10",
       description: "Creative work",
+    },
+    {
+      icon: <MessageCircle className="w-6 h-6" />,
+      platform: "WhatsApp",
+      value: "+8801XXXXXXXXX",
+      href: "https://wa.me/8801XXXXXXXXX",
+      color: "text-green-400",
+      bgColor: "bg-green-400/10",
+      description: "Quick responses",
     },
   ];
 

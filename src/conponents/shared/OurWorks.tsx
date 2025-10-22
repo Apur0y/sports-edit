@@ -1,6 +1,7 @@
 "use client";
 import React from "react";
 import ComponentHeader from "../Reuseable/Header";
+import Link from "next/link";
 
 type Video = {
   id: number;
@@ -93,9 +94,14 @@ export default function OurWorks() {
 
         {/* View All Button */}
         <div className="mt-10">
-          <button className="px-8 py-3 border border-black text-black cursor-pointer hover:text-white hover:border-primary transition  font-medium hover:bg-primary">
-            View All Works
-          </button>
+         <Link 
+  target="_blank"
+  href="https://www.youtube.com/watch?v=o7c5LxzmZvs&list=RDo7c5LxzmZvs&index=1" 
+  className="px-8 py-3 border border-black text-black cursor-pointer hover:text-white hover:border-primary transition font-medium hover:bg-primary"
+>
+  View All Works
+</Link>
+
         </div>
       </div>
     </section>
