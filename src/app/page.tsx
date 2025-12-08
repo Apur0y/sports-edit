@@ -1,5 +1,11 @@
 
 import AboutUs from "@/conponents/home/AboutUs";
+import { FAQSection } from "@/conponents/home/FAQSection";
+import { PortfolioSection } from "@/conponents/home/PortfolioSection";
+import { PricingSection } from "@/conponents/home/PricingSection";
+import { ProcessSection } from "@/conponents/home/ProcessSection";
+import { ServicesSection } from "@/conponents/home/ServicesSection";
+import { TestimonialsSection } from "@/conponents/home/TestimonialsSection";
 import Banner from "@/conponents/shared/Banner";
 import FloatingButtons from "@/conponents/shared/FloatingButtons";
 import Footer from "@/conponents/shared/Footer";
@@ -16,7 +22,11 @@ export default function HomePage() {
       <SportsOptions />
       <OurWorks/>
      <AboutUs/>
- 
+     <ServicesSection/>
+     <FAQSection/>
+     <PortfolioSection/>
+     <PricingSection/>
+     <ProcessSection/> 
       {/* <FloatingButtons /> */}
       <Packages />
       <Footer/>
