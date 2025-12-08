@@ -7,7 +7,7 @@ const faqs = [
 { q: 'Can you focus on one player?', a: 'Yes — tell us the jersey number and timestamps if available.' },
 { q: 'What footage formats do you accept?', a: 'MP4, MOV, GoPro files, and raw camera footage via cloud links.' },
 ]
-const [open, setOpen] = useState(null)
+const [open, setOpen] = useState<number | null>(null)
 
 
 return (

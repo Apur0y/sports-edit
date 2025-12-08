@@ -1,7 +1,12 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
 import { AiFillHome, AiFillBell } from 'react-icons/ai';
 import { MdGroups, MdWork } from 'react-icons/md';
 import { FaPlusSquare } from 'react-icons/fa';
+
+interface Nav{
+  icon:ReactNode,
+  label:string
+}
 
 export default function MNavbar() {
   return (
@@ -27,7 +32,7 @@ export default function MNavbar() {
 }
 
 // Reusable Nav Item Component
-function NavItem({ icon, label }) {
+function NavItem({ icon, label }:Nav) {
   return (
     <button className="flex flex-col items-center justify-center text-gray-600 hover:text-black text-sm flex-1">
       {icon}

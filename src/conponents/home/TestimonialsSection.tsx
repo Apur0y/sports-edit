@@ -5,7 +5,7 @@ export function TestimonialsSection() {
 const list = [
 { id: 1, name: 'amahds_creation', text: 'Very good work. Apu fixed anything I wanted changed and he always did it within 24 hours most times 12hrs !! He also price matched an offer I received from another service. Great work Apu' },
 { id: 2, name: 'jeffeldridge (Parent)', text: 'This was an excellent project. Incredibly polished and even with complex edits and iterations, it was perfect at each step of the way. I am about to start my next project with Apu and cant recommend him more.' },
-{ id: 3, name: 'Club Director', text: 'Consistent quality across all edits.' },
+{ id: 3, name: 'Club Director', text: 'This was a great project and they were easy to work with.  Apu fixed anything I wanted changed and make the perfect video for me. We loved the video and we look forward to working together again' },
 ]
 const [index, setIndex] = useState(0)
 

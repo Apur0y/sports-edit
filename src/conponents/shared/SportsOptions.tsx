@@ -13,35 +13,40 @@ const sports = [
     name: "Soccer",
     icon: <FaFutbol />,
     image:
-      "https://images.pexels.com/photos/50713/football-ball-sport-soccer-50713.jpeg",
+      "https://images.pexels.com/photos/50713/football-ball-sport-soccer-50713.jpeg?auto=compress&cs=tinysrgb&w=300",
   },
   {
     name: "Basketball",
     icon: <FaBasketballBall />,
-    image: "https://images.pexels.com/photos/5275003/pexels-photo-5275003.jpeg",
+    image:
+      "https://images.pexels.com/photos/5275003/pexels-photo-5275003.jpeg?auto=compress&cs=tinysrgb&w=300",
   },
   {
     name: "Golf",
     icon: <FaGolfBall />,
-    image: "https://images.pexels.com/photos/1325662/pexels-photo-1325662.jpeg",
+    image:
+      "https://images.pexels.com/photos/1325662/pexels-photo-1325662.jpeg?auto=compress&cs=tinysrgb&w=300",
   },
   {
     name: "Rugby",
     icon: <FaFootballBall />,
-    image: "https://images.pexels.com/photos/2207/red-people-outside-sport.jpg",
+    image:
+      "https://images.pexels.com/photos/2207/red-people-outside-sport.jpg?auto=compress&cs=tinysrgb&w=300",
   },
   {
     name: "lacrosse",
     icon: <GiBugNet />,
     image:
-      "https://images.pexels.com/photos/159573/lacrosse-lax-lacrosse-game-game-159573.jpeg",
+      "https://images.pexels.com/photos/159573/lacrosse-lax-lacrosse-game-game-159573.jpeg?auto=compress&cs=tinysrgb&w=300",
   },
   {
     name: "Racing",
     icon: <PiPersonSimpleBikeBold />,
-    image: "https://images.pexels.com/photos/1119796/pexels-photo-1119796.jpeg",
+    image:
+      "https://images.pexels.com/photos/1119796/pexels-photo-1119796.jpeg?auto=compress&cs=tinysrgb&w=300",
   },
 ];
+
 
 export default function SportsOptions() {
   return (

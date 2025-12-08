@@ -12,8 +12,11 @@ const roboto = Roboto_Condensed({
 
 
 export const metadata: Metadata = {
-  title: "Sports Edit",
+  title: "Play Picker",
   description: "This is the best sports editing site",
+    icons: {
+    icon: "/favicon.ico"
+  },
 };
 
 export default function RootLayout({

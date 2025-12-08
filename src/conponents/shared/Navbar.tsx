@@ -1,4 +1,5 @@
 "use client";
+import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 import { FaUserCircle, FaBars, FaTimes } from "react-icons/fa";
@@ -29,14 +30,31 @@ export default function Navbar() {
     <nav className="sticky top-0 left-0 w-full z-50 bg-black/80 bg-opacity-80 text-white shadow-lg">
       <div className="container mx-auto px-6 flex justify-between items-center h-16">
         {/* Logo */}
-        <Link href="/" className="text-4xl font-bold tracking-wide uppercase">
-         Sports
+        <Link href="/" className="text-4xl font-bold tracking-wide flex  gap-2">
+          <Image
+            src="/logo1.png"
+            alt="Logo"
+            width={40}
+            height={40}
+            className="w-10 h-10 object-contain"
+          />
+          <div className="text-2xl flex items-end">
+            <span className="bg-gradient-to-t from-blue-400 to-blue-600 bg-clip-text text-transparent font-bold">
+              Play
+            </span>
+            <span className="bg-gradient-to-r from-orange-500 to-yellow-400 bg-clip-text text-transparent font-bold">
+              Picker
+            </span>
+          </div>
         </Link>
 
         {/* Desktop Menu */}
         <ul className="hidden md:flex gap-6 items-center">
           {menuLinks.map((link) => (
-            <li key={link.name} className="hover:text-blue-400 hover:underline transition uppercase text-sm font-semibold">
+            <li
+              key={link.name}
+              className="hover:text-blue-400 hover:underline transition uppercase text-sm font-semibold"
+            >
               <Link href={link.href}>{link.name}</Link>
             </li>
           ))}
