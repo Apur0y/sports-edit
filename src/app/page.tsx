@@ -21,14 +21,14 @@ export default function HomePage() {
       <Banner />
       <SportsOptions />
       <OurWorks/>
-     <AboutUs/>
      <ServicesSection/>
-     <FAQSection/>
      <PortfolioSection/>
      <PricingSection/>
      <ProcessSection/> 
+     <AboutUs/>
       {/* <FloatingButtons /> */}
       <Packages />
+     <FAQSection/>
       <Footer/>
     </main>
   );

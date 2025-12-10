@@ -7,10 +7,10 @@ const services = [
 
 
 return (
-<section id="services" className="py-16 bg-gradient-to-b from-white to-gray-50">
+<section id="services" className="py-16 bg-gradient-to-b from-white to-gray-50 text-black">
 <div className="container mx-auto px-6">
 <h2 className="text-3xl font-extrabold mb-6">Services</h2>
-<p className="text-gray-600 mb-8">Pick a service that fits your needs — each package is customizable.</p>
+<p className=" mb-8">Pick a service that fits your needs — each package is customizable.</p>
 
 
 <div className="grid gap-6 md:grid-cols-3">
@@ -18,7 +18,7 @@ return (
 <div key={s.title} className="p-6 border rounded-xl hover:shadow-lg transition">
 <div className="text-4xl mb-4">{s.icon}</div>
 <h3 className="text-xl font-semibold">{s.title}</h3>
-<p className="text-gray-600 mt-2">{s.desc}</p>
+<p className=" mt-2">{s.desc}</p>
 <button className="mt-4 inline-block px-4 py-2 bg-blue-600 text-white rounded-lg">View Sample</button>
 </div>
 ))}

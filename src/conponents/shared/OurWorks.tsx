@@ -42,13 +42,11 @@ const videos: Video[] = [
   },
 ];
 
-
 export default function OurWorks() {
-
   return (
-    <section className="w-full container py-32 bg-white text-black ">
-      <div className="container mx-auto px-4 text-center">
-        <ComponentHeader title="Works Gallery" text="Check out top works"/>
+    <section className="w-full container py-32  text-white mx-auto">
+      <div className="container mx-auto px-4 ">
+        <ComponentHeader title="Works Gallery" text="Check out top works" />
         {/* Sports Filter Buttons */}
         {/* <div className="flex flex-wrap justify-start gap-3 my-10">
           {sports.map((sport) => (
@@ -68,7 +66,7 @@ export default function OurWorks() {
         </div> */}
 
         {/* Video Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-14">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-14">
           {videos.map((video) => (
             <div
               key={video.id}
@@ -82,11 +80,23 @@ export default function OurWorks() {
                   className="w-full h-full object-cover"
                 />
               </div>
-              <div className="px-4 py-2 text-left">
-                <h3 className="text-md font-semibold text-nowrap">
-                  {video.title}
-                </h3>
-                <p className="text-sm text-gray-500 mt-1">{video.sport}</p>
+              <div className="p-4">
+                <div className="flex items-center justify-between">
+                  <div>
+                    <h3 className="font-semibold">{video.title}</h3>
+                    <p className="text-sm text-gray-500">{video.sport}</p>
+                  </div>
+
+                  {/* Preview Button */}
+                  <a
+                    href={video.videoUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="px-3 py-1 border rounded"
+                  >
+                    Preview
+                  </a>
+                </div>
               </div>
             </div>
           ))}
@@ -94,14 +104,13 @@ export default function OurWorks() {
 
         {/* View All Button */}
         <div className="mt-10">
-         <Link 
-  target="_blank"
-  href="https://www.youtube.com/watch?v=o7c5LxzmZvs&list=RDo7c5LxzmZvs&index=1" 
-  className="px-8 py-3 border border-black text-black cursor-pointer hover:text-white hover:border-primary transition font-medium hover:bg-primary"
->
-  View All Works
-</Link>
-
+          <Link
+            target="_blank"
+            href="https://www.youtube.com/watch?v=o7c5LxzmZvs&list=RDo7c5LxzmZvs&index=1"
+            className="px-8 py-3 border border-black text-black cursor-pointer hover:text-white hover:border-primary transition font-medium hover:bg-primary"
+          >
+            View All Works
+          </Link>
         </div>
       </div>
     </section>
