@@ -1,3 +1,5 @@
+import ComponentHeader from "../Reuseable/Header"
+
 export function ServicesSection() {
 const services = [
 { title: 'Highlight Editing', desc: 'Fast, clean highlight reels that showcase the athlete\'s best moments.', icon: '⚡' },
@@ -9,8 +11,8 @@ const services = [
 return (
 <section id="services" className="py-16 bg-gradient-to-b from-white to-gray-50 text-black">
 <div className="container mx-auto px-6">
-<h2 className="text-3xl font-extrabold mb-6">Services</h2>
-<p className=" mb-8">Pick a service that fits your needs — each package is customizable.</p>
+        <ComponentHeader title="Pick a Service" text="That fits your needs" />
+
 
 
 <div className="grid gap-6 md:grid-cols-3">

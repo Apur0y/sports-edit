@@ -22,11 +22,11 @@ export default function HomePage() {
       <SportsOptions />
       <OurWorks/>
      <ServicesSection/>
-     <PortfolioSection/>
-     <PricingSection/>
+     {/* <PortfolioSection/> */}
      <ProcessSection/> 
      <AboutUs/>
       {/* <FloatingButtons /> */}
+     <PricingSection/>
       <Packages />
      <FAQSection/>
       <Footer/>

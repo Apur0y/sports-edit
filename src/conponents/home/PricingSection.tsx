@@ -7,10 +7,10 @@ const plans = [
 
 
 return (
-<section id="pricing" className="py-16 bg-gray-50">
+<section id="pricing" className="py-16 bg-gray-50 text-black">
 <div className="container mx-auto px-6">
 <h2 className="text-3xl font-extrabold mb-6">Pricing</h2>
-<p className="text-gray-600 mb-8">Transparent pricing — need a custom package? Contact us.</p>
+<p className=" mb-8">Transparent pricing — need a custom package? Contact us.</p>
 
 
 <div className="grid gap-6 md:grid-cols-3">
@@ -18,7 +18,7 @@ return (
 <div key={p.name} className="p-6 rounded-2xl bg-white border shadow-sm">
 <h3 className="text-xl font-bold">{p.name}</h3>
 <div className="text-3xl font-extrabold mt-4">{p.price}</div>
-<ul className="mt-4 space-y-2 text-gray-600">
+<ul className="mt-4 space-y-2 ">
 {p.bullets.map((b) => (
 <li key={b} className="flex items-center">
 <span className="mr-2">•</span>

@@ -47,23 +47,7 @@ export default function OurWorks() {
     <section className="w-full container py-32  text-white mx-auto">
       <div className="container mx-auto px-4 ">
         <ComponentHeader title="Works Gallery" text="Check out top works" />
-        {/* Sports Filter Buttons */}
-        {/* <div className="flex flex-wrap justify-start gap-3 my-10">
-          {sports.map((sport) => (
-            <button
-              key={sport}
-              onClick={() => setSelectedSport(sport)}
-              className={`px-5 py-2 rounded-full text-sm font-medium border transition-all duration-300
-              ${
-                selectedSport === sport
-                  ? "bg-blue-600 text-white border-blue-600"
-                  : "bg-white text-gray-700 border-gray-300 hover:bg-blue-50"
-              }`}
-            >
-              {sport}
-            </button>
-          ))}
-        </div> */}
+        
 
         {/* Video Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-14">
