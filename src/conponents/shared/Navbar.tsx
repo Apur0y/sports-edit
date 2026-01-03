@@ -39,10 +39,16 @@ export default function Navbar() {
             className="w-10 h-10 object-contain"
           />
           <div className="text-2xl flex items-end">
-            <span className="bg-gradient-to-t from-blue-400 to-blue-600 bg-clip-text text-transparent font-bold">
+            {/* <span className="bg-gradient-to-t from-blue-400 to-blue-600 bg-clip-text text-transparent font-bold">
               Play
             </span>
             <span className="bg-gradient-to-r from-orange-500 to-yellow-400 bg-clip-text text-transparent font-bold">
+              Picker
+            </span> */}
+             <span className=" ">
+              Play
+            </span>
+            <span className=" ">
               Picker
             </span>
           </div>
