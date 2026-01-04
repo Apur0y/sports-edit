@@ -14,7 +14,7 @@ import {
   FaFootballBall,
 } from "react-icons/fa";
 
-export default function Banner() {
+export default function BannerOld() {
   const slides = [
     "https://images.pexels.com/photos/46798/the-ball-stadion-football-the-pitch-46798.jpeg",
     "https://dtwhistledev.wpengine.com/wp-content/uploads/2015/12/rugby.jpg",

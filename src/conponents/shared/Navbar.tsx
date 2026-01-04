@@ -27,18 +27,18 @@ export default function Navbar() {
   ];
 
   return (
-    <nav className="sticky top-0 left-0 w-full z-50 bg-black/80 bg-opacity-80 text-white shadow-lg">
+    <nav className="sticky top-0 left-0 w-full z-50 bg-white bg-opacity-80 text-black shadow-lg">
       <div className="container mx-auto px-6 flex justify-between items-center h-[72px]">
         {/* Logo */}
-        <Link href="/" className="text-4xl font-bold tracking-wide flex  gap-2">
+        <Link href="/" className="text-4xl font-bold tracking-wide flex ">
           <Image
-            src="/logo1.png"
+            src="/pplogo.png"
             alt="Logo"
-            width={40}
-            height={40}
-            className="w-10 h-10 object-contain"
+            width={400}
+            height={400}
+            className="w-20 h-20 object-contain"
           />
-          <div className="text-2xl flex items-end">
+          <div className="text-2xl flex items-center">
             {/* <span className="bg-gradient-to-t from-blue-400 to-blue-600 bg-clip-text text-transparent font-bold">
               Play
             </span>
