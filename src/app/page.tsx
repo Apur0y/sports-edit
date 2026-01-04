@@ -17,8 +17,8 @@ export default function HomePage() {
     <main>
       
       <Banner />
-      <SportsOptions />
       <OurWorks/>
+      <SportsOptions />
       <ChooseUs/>
      <ProcessSection/> 
      <AboutUs/>
