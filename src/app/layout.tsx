@@ -1,11 +1,16 @@
 import type { Metadata } from "next";
-import { Roboto_Condensed } from "next/font/google";
+import { Oswald, Roboto_Condensed } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/conponents/shared/Navbar";
 
 
 
 const roboto = Roboto_Condensed({
+  subsets: ["cyrillic"],
+  variable: "--font-condensed",
+})
+
+const oswald =Oswald({
   subsets: ["cyrillic"],
   variable: "--font-condensed",
 })
@@ -27,7 +32,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${roboto.variable} font-sans antialiased`}
+        className={`${oswald.variable} font-sans antialiased bg-white text-black`}
       >
         
         <Navbar />
