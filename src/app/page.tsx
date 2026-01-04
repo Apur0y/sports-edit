@@ -10,6 +10,7 @@ import Packages from "@/conponents/home/Packages";
 import SportsOptions from "@/conponents/shared/SportsOptions";
 import ProcessSection from "@/conponents/home/ProcessSection";
 import Banner from "@/conponents/home/Banner";
+import FootballInfo from "@/conponents/home/Football";
 
 
 export default function HomePage() {
@@ -17,6 +18,7 @@ export default function HomePage() {
     <main>
       
       <Banner />
+      <FootballInfo/>
       <OurWorks/>
       <SportsOptions />
       <ChooseUs/>

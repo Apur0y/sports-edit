@@ -28,13 +28,6 @@ const videos: Video[] = [
     videoUrl: "https://www.youtube-nocookie.com/embed/4OcFQBwh1N8?si=cr5M3iMAoZjJ0xqX&amp;start=1",
   },
   {
-    id: 3,
-    sport: "Football",
-    title: "Recruiting Highlights 2024",
-    thumbnail: "/videos/thumb3.jpg",
-    videoUrl: "https://www.youtube-nocookie.com/embed/UWrobmt0ge8?si=fbxPhS6UdNbOmcaV&amp;start=1",
-  },
-  {
     id: 4,
     sport: "Baseball",
     title: "Baseball Montage",
@@ -56,7 +49,7 @@ export default function OurWorks() {
         </div>
 
         {/* View All Button */}
-        <div className="mt-10">
+        <div className="mt-10 flex justify-center">
           <Link
             target="_blank"
             href="https://www.youtube.com/@PlayPickerltd/playlists"
