@@ -27,43 +27,38 @@ const wrapText = (text: string, maxChars = 24) => {
   return lines;
 };
 
+export default function ProcessSection() {
+  const steps: Step[] = [
+    {
+      number: 1,
+      title: "Get in Touch",
+      description: "Start with a quick conversation to discuss your goals and expectations."
+    },
+    {
+      number: 2,
+      title: "Upload Your Footage",
+      description: "Share all match clips, highlights, and raw footage securely."
+    },
+    {
+      number: 3,
+      title: "Share Player Details",
+      description: "Provide player names, numbers, and key moments for accurate identification."
+    },
+    {
+      number: 4,
+      title: "Editing in Progress",
+      description: "Relax while we craft a professional, high-impact highlight video."
+    },
+    {
+      number: 5,
+      title: "Receive Final Video",
+      description: "Download your polished, game-ready video and share it anywhere."
+    }
+  ];
 
-export function ProcessSection() {
-  // Define step metadata (positions will be generated uniformly)
-const steps: Step[] = [
-  {
-    number: 1,
-    title: "Get in Touch",
-    description: "Start with a quick conversation to discuss your goals and expectations."
-  },
-  {
-    number: 2,
-    title: "Upload Your Footage",
-    description: "Share all match clips, highlights, and raw footage securely."
-  },
-  {
-    number: 3,
-    title: "Share Player Details",
-    description: "Provide player names, numbers, and key moments for accurate identification."
-  },
-  {
-    number: 4,
-    title: "Editing in Progress",
-    description: "Relax while we craft a professional, high-impact highlight video."
-  },
-  {
-    number: 5,
-    title: "Receive Final Video",
-    description: "Download your polished, game-ready video and share it anywhere."
-  }
-];
-
-
-  // Generate a uniform repeating-arc (semicircles) path and step centers.
   const createUniformArcPath = (count: number, svgW: number, svgH: number, padding = 40) => {
     if (count < 1) return { d: "", positions: [] as Point[], radius: 0 };
 
-    // For vertical layout: each semicircle vertical span = 2 * r. Total height = 2*r*count.
     const maxPossibleR = Math.floor((svgH - padding * 2) / (2 * count));
     const r = Math.max(16, Math.min(80, maxPossibleR));
 
@@ -76,7 +71,6 @@ const steps: Step[] = [
 
     for (let i = 0; i < count; i++) {
       const targetY = startY + (i + 1) * 2 * r;
-      // Alternate sweep flag to go right then left, creating symmetric side bumps
       const sweep = i % 2 === 0 ? 1 : 0;
       d += ` A ${r} ${r} 0 0 ${sweep} ${xMid} ${targetY}`;
 
@@ -88,36 +82,36 @@ const steps: Step[] = [
     return { d, positions, radius: r };
   };
 
-
-
   return (
-    <div className="min-h-full py-12 px-6">
+    <div className="min-h-full py-6 sm:py-8 md:py-12 px-4 sm:px-6">
       <div className="max-w-4xl mx-auto">
-        <div className="text-center mb-12">
-          <h1 className="text-gray-900 mb-3">How It Works</h1>
-          <p className="text-gray-600 max-w-2xl mx-auto">
+        <div className="text-center mb-8 sm:mb-10 md:mb-12">
+          <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-2 sm:mb-3">
+            How It Works
+          </h1>
+          <p className="text-sm sm:text-base text-gray-600 max-w-2xl mx-auto px-2">
             Follow the snake path through each step of the process
           </p>
         </div>
 
-        <div className="bg-white rounded-xl shadow-lg p-8">
-          <div className="relative">
-            {/* SVG for the snake path */}
-            <svg width="800" height="650" className="mx-auto">
-              {/* Generate uniform arc path and positions */}
+        <div className="bg-white rounded-xl shadow-lg p-4 sm:p-6 md:p-8">
+          <div className="relative w-full overflow-x-auto">
+            <svg 
+              viewBox="0 0 800 650" 
+              className="w-full h-auto mx-auto"
+              preserveAspectRatio="xMidYMid meet"
+              style={{ maxWidth: '800px', minWidth: '320px' }}
+            >
               {(() => {
                 const svgW = 800;
                 const svgH = 650;
                 const padding = 40;
                 const { d, positions, radius } = createUniformArcPath(steps.length, svgW, svgH, padding);
-                const sideOffset = Math.max(50, Math.round(radius * 1.2));
 
                 return (
                   <>
-                    {/* Light base path */}
                     <path d={d} fill="none" stroke="#e5e7eb" strokeWidth="8" strokeLinecap="round" />
 
-                    {/* Gradient overlay */}
                     <defs>
                       <linearGradient id="pathGradient" x1="0%" y1="0%" x2="0%" y2="100%">
                         <stop offset="0%" stopColor="#3b82f6" />
@@ -127,7 +121,6 @@ const steps: Step[] = [
 
                     <path d={d} fill="none" stroke="url(#pathGradient)" strokeWidth="6" strokeLinecap="round" />
 
-                    {/* Draw step circles and content using generated positions (vertical layout) */}
                     {steps.map((step, index) => {
                       const pos = positions[index] || { x: 0, y: 0 };
                       const outerR = Math.round(radius * 0.9);
@@ -141,53 +134,58 @@ const steps: Step[] = [
 
                           <circle cx={pos.x} cy={pos.y} r={mainR} fill="white" stroke={strokeColor} strokeWidth="4" />
 
-                          <text x={pos.x} y={pos.y + 6} textAnchor="middle" className="text-sm" fill={strokeColor}>
+                          <text 
+                            x={pos.x} 
+                            y={pos.y + 6} 
+                            textAnchor="middle" 
+                            fontSize="14" 
+                            fontWeight="600"
+                            fill={strokeColor}
+                          >
                             Step {step.number}
                           </text>
 
                           {(() => {
-  const isRight = index % 2 === 0;
-  const labelX = pos.x + (isRight ? sideOffsetX : -sideOffsetX);
-  const anchor = isRight ? "start" : "end";
+                            const isRight = index % 2 === 0;
+                            const labelX = pos.x + (isRight ? sideOffsetX : -sideOffsetX);
+                            const anchor = isRight ? "start" : "end";
 
-  const titleLines = wrapText(step.title, 25);
-  const descLines = wrapText(step.description, 30);
+                            const titleLines = wrapText(step.title, 25);
+                            const descLines = wrapText(step.description, 30);
 
-  return (
-    <>
-      {/* Title */}
-      <text
-        x={labelX}
-        y={pos.y - 18}
-        textAnchor={anchor}
-        className="text-2xl font-semibold"
-        fill="#1f2937"
-      >
-        {titleLines.map((line, i) => (
-          <tspan key={i} x={labelX} dy={i === 0 ? 0 : 26}>
-            {line}
-          </tspan>
-        ))}
-      </text>
+                            return (
+                              <>
+                                <text
+                                  x={labelX}
+                                  y={pos.y - 18}
+                                  textAnchor={anchor}
+                                  fontSize="20"
+                                  fontWeight="600"
+                                  fill="#1f2937"
+                                >
+                                  {titleLines.map((line, i) => (
+                                    <tspan key={i} x={labelX} dy={i === 0 ? 0 : 26}>
+                                      {line}
+                                    </tspan>
+                                  ))}
+                                </text>
 
-      {/* Description */}
-      <text
-        x={labelX}
-        y={pos.y + 14}
-        textAnchor={anchor}
-        className="text-xs"
-        fill="#6b7280"
-      >
-        {descLines.map((line, i) => (
-          <tspan key={i} x={labelX} dy={i === 0 ? 0 : 14}>
-            {line}
-          </tspan>
-        ))}
-      </text>
-    </>
-  );
-})()}
-
+                                <text
+                                  x={labelX}
+                                  y={pos.y + 14}
+                                  textAnchor={anchor}
+                                  fontSize="12"
+                                  fill="#6b7280"
+                                >
+                                  {descLines.map((line, i) => (
+                                    <tspan key={i} x={labelX} dy={i === 0 ? 0 : 14}>
+                                      {line}
+                                    </tspan>
+                                  ))}
+                                </text>
+                              </>
+                            );
+                          })()}
 
                           {(index === 0 || index === steps.length - 1) && (
                             <circle cx={pos.x} cy={pos.y} r={mainR} fill="none" stroke={strokeColor} strokeWidth="2" opacity="0.6">
@@ -201,12 +199,9 @@ const steps: Step[] = [
                   </>
                 );
               })()}
-
             </svg>
           </div>
         </div>
-
-      
       </div>
     </div>
   );

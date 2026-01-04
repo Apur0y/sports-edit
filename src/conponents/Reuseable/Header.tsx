@@ -10,7 +10,7 @@ interface Header {
 export default function ComponentHeader({ title, text }: Header) {
     return (
         <div className="flex items-center gap-4 mb-5 h-full">
-            <MdOutlineDoubleArrow className='text-red-500 text-7xl ' />
+            <MdOutlineDoubleArrow className='text-red-500 text-4xl md:text-5xl xl:text-7xl ' />
 
             <div className="flex flex-col">
                 <h2 className="text-3xl md:text-5xl font-semibold uppercase text-black">

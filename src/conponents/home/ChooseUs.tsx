@@ -7,6 +7,7 @@ import {
   FaChartLine, 
   FaMagic 
 } from "react-icons/fa";
+import ComponentHeader from "../Reuseable/Header";
 
 const cardData = [
   {
@@ -50,13 +51,10 @@ export default function ChooseUs() {
       
      
         <div className="relative z-10 container mx-auto">
+
+           <ComponentHeader title="Why Choose Us" />
          
-          <div>
-            <h1>Why Choose Us</h1>
-            <p> Unlock personalized job opportunities, streamline your job search
-                process, and make smarter career decisions with the power of AI, 
-                all in one seamless platform.</p>
-          </div>
+      
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-16">
             {cardData.map((card, index) => (

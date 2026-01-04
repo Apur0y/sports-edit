@@ -18,7 +18,7 @@ const videos: Video[] = [
     sport: "Football",
     title: "High School Football Highlights",
     thumbnail: "/videos/thumb1.jpg",
-    videoUrl: "https://www.youtube-nocookie.com/embed/4OcFQBwh1N8?si=cr5M3iMAoZjJ0xqX&amp;start=1",
+    videoUrl: "https://www.youtube.com/embed/O__cpWn2mPY?si=AyhXaWCQ1_D_z3Ck",
   },
   {
     id: 2,
@@ -59,7 +59,7 @@ export default function OurWorks() {
         <div className="mt-10">
           <Link
             target="_blank"
-            href="https://www.youtube.com/watch?v=o7c5LxzmZvs&list=RDo7c5LxzmZvs&index=1"
+            href="https://www.youtube.com/@PlayPickerltd/playlists"
             className="px-8 py-3 border border-black text-black cursor-pointer hover:text-white hover:border-primary transition font-medium hover:bg-primary"
           >
             View All Works
