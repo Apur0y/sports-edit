@@ -47,7 +47,7 @@ const sports = [
     image:
       "https://cdn.pixabay.com/photo/2018/05/28/22/45/lacrosse-3437409_1280.jpg",
     hoverImage:
-      "/lac2.jpg",
+      "/lac3.jpg",
   },
   {
     name: "Racing",
