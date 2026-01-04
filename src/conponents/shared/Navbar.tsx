@@ -45,7 +45,7 @@ export default function Navbar() {
             <span className="bg-gradient-to-r from-orange-500 to-yellow-400 bg-clip-text text-transparent font-bold">
               Picker
             </span> */}
-             <span className=" ">
+            <span className=" ">
               Play
             </span>
             <span className=" ">
@@ -56,12 +56,17 @@ export default function Navbar() {
 
         {/* Desktop Menu */}
         <ul className="hidden md:flex gap-6 items-center">
-          {menuLinks.map((link) => (
+          {menuLinks.map((link, index) => (
             <li
               key={link.name}
-              className="hover:text-blue-400 hover:underline transition uppercase text-sm font-semibold"
+              className="hover:text-orange-600 hover:underline transition uppercase text-sm font-medium flex items-center "
             >
-              <Link href={link.href}>{link.name}</Link>
+              <Link className="tracking-widest " href={link.href}>{link.name}</Link>
+
+              {/* Add separator except for last item */}
+              {index < menuLinks.length - 1 && (
+                <span className="ml-5 text-gray-400">|</span>
+              )}
             </li>
           ))}
 
@@ -69,7 +74,7 @@ export default function Navbar() {
           <li className="relative">
             <button
               onClick={toggleProfile}
-              className="flex items-center gap-2 hover:text-blue-400 transition"
+              className="flex items-center gap-2 hover:text-orange-400 transition"
             >
               <FaUserCircle size={28} />
             </button>
@@ -91,6 +96,7 @@ export default function Navbar() {
             )}
           </li>
         </ul>
+
 
         {/* Mobile Hamburger */}
         <div className="md:hidden flex items-center gap-4">
