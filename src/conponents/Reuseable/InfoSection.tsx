@@ -30,20 +30,35 @@ export default function InfoSection({
       className={`flex flex-col text-black items-center gap-10 md:gap-14 lg:gap-20 md:px-6 py-12  ${className}`}
     >
       {/* Left - Image */}
-      <div className="w-full md:w-2/3 mx-auto flex justify-start ">
-        
-    <div className="relative">
-        <Image
-          src={imageUrl}
-          alt={title}
-          className="w-[200px] md:w-[250px] xl:w-[400px] h-auto rounded-lg  "
-          height={height}
-          width={width}
-        />
-        <h1  className="text-6xl font-medium overflow-hidden md:text-8xl xl:text-9xl -z-10 text-primary absolute inset-y-0 top-10 xl:top-30 left-45 xl:left-90 -rotate-10">
-      Sports <br /> Highlight
-    </h1>
-    </div>
+      <div className="w-full md:w-2/3 mx-auto flex  md:justify-start ">
+        <div className="relative">
+          <Image
+            src={imageUrl}
+            alt={title}
+            className="w-[200px] md:w-[250px] xl:w-[400px] h-auto rounded-lg  "
+            height={height}
+            width={width}
+          />
+          <h1 className="text-6xl font-medium overflow-hidden md:text-8xl xl:text-9xl -z-10 text-primary absolute inset-y-0 top-10 xl:top-30 left-45 md:left-55 xl:left-90 -rotate-10">
+            Sports <br /> Highlight
+          </h1>
+          <div className="relative -z-20 perspective-[1000px]">
+  <div
+    aria-hidden="true"
+    className="
+    absolute -top-55 -left-5 xl:left- xl:-top-85
+      w-80 h-80 xl:w-[500px] xl:h-[500px]
+      rounded-full
+      border-8 border-red-600
+      bg-transparent
+      transform
+      rotate-x-[70deg]
+      rotate-y-[0deg]
+    "
+  />
+</div>
+
+        </div>
       </div>
 
       {/* Right - Content */}

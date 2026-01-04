@@ -49,10 +49,10 @@ export default function FootballInfo() {
             title="Ready to"
             title2={
               <>
-                Find Your <br /> Perfect Job?
+                Find Your <br /> Perfect Video?
               </>
             }
-            description="With AI-powered tools, we help you find the right job faster and easier. Get matched with top roles based on your skills and goals. Take control of your career path today."
+            description="With tools, we help you find the right video faster and easier. Get matched with top position based on your skills and goals. Take control of your career path today."
             buttonText="Create Your Profile"
             // onButtonClick={() => alert("Button clicked!")}
             className="md:flex-row-reverse"
