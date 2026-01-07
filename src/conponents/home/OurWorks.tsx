@@ -3,6 +3,7 @@ import React from "react";
 import ComponentHeader from "../Reuseable/Header";
 import Link from "next/link";
 import WorksCard from "../shared/WorksCard";
+import Container from "../shared/Container";
 
 type Video = {
   id: number;
@@ -38,7 +39,8 @@ const videos: Video[] = [
 
 export default function OurWorks() {
   return (
-    <section className="w-full container py-32  text-white mx-auto">
+    <Container className="mx-auto my-8">
+    <section className="w-full   text-white mx-auto">
       <div className="container mx-auto px-4 ">
         <ComponentHeader title="Works Gallery" />
         
@@ -60,6 +62,7 @@ export default function OurWorks() {
         </div>
       </div>
     </section>
+    </Container>
   );
 }
 
