@@ -12,7 +12,8 @@ export default function Navbar() {
   const toggleProfile = () => setProfileOpen(!profileOpen);
 
   const menuLinks = [
-    { name: "Home", href: "/" },
+    { name: "Home", href: "/",  },
+    { name: "All Games", href: "/games", games:["lacrossec", "soccer","football"] },
     { name: "Packages", href: "#packages" },
     { name: "Reviews", href: "#reviews" },
     { name: "FAQ", href: "#faq" },
@@ -25,6 +26,15 @@ export default function Navbar() {
     { name: "Settings", href: "/settings" },
     { name: "Logout", href: "/logout" },
   ];
+
+  const handleHover=(games:any)=>{
+    return(
+      <div>
+        {games?.map(p=>p)}
+
+      </div>
+    )
+  }
 
   return (
     <nav className="sticky top-0 left-0 w-full z-50 bg-white bg-opacity-80 text-black shadow-lg">
@@ -58,10 +68,13 @@ export default function Navbar() {
         <ul className="hidden md:flex gap-6 items-center">
           {menuLinks.map((link, index) => (
             <li
+          
               key={link.name}
               className="hover:text-orange-600 hover:underline transition uppercase text-sm font-medium flex items-center "
             >
-              <Link className="tracking-widest " href={link.href}>{link.name}</Link>
+              
+              {link?.games ? <Link onMouseMove={()=>handleHover(link?.games+)}  className="tracking-widest " href={link.href}>{link.name}</Link> : <Link  className="tracking-widest " href={link.href}>{link.name}</Link>}
+                            
 
               {/* Add separator except for last item */}
               {index < menuLinks.length - 1 && (

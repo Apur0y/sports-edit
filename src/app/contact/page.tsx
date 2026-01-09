@@ -16,7 +16,7 @@ export default function ContactPage() {
       icon: <TbBrandFiverr className="w-6 h-6" />,
       platform: "Fiverr",
       value: "Visit Profile",
-      href: "https://fiverr.com/yourprofile",
+      href: "https://www.fiverr.com/s/zWpdplo",
       color: "text-green-400",
       bgColor: "bg-green-400/10",
       description: "Professional services",
@@ -24,8 +24,8 @@ export default function ContactPage() {
     {
       icon: <Mail className="w-6 h-6" />,
       platform: "Email",
-      value: "hello@example.com",
-      href: "mailto:hello@example.com",
+      value: "game0play24@gmail.com",
+      href: "mailto:game0play24@gmail.com",
       color: "text-blue-400",
       bgColor: "bg-blue-400/10",
       description: "Detailed inquiries",
@@ -34,8 +34,8 @@ export default function ContactPage() {
     {
       icon: <MessageCircle className="w-6 h-6" />,
       platform: "Instagram",
-      value: "@yourhandle",
-      href: "https://instagram.com/yourhandle",
+      value: "@playpicker",
+      href: "https://www.instagram.com/playpicker/",
       color: "text-pink-400",
       bgColor: "bg-pink-400/10",
       description: "Creative work",
@@ -43,8 +43,8 @@ export default function ContactPage() {
     {
       icon: <MessageCircle className="w-6 h-6" />,
       platform: "WhatsApp",
-      value: "+8801XXXXXXXXX",
-      href: "https://wa.me/8801XXXXXXXXX",
+      value: "+8801786209895",
+      href: "https://wa.me/8801786209895",
       color: "text-green-400",
       bgColor: "bg-green-400/10",
       description: "Quick responses",
@@ -134,15 +134,29 @@ export default function ContactPage() {
                   target="_blank"
                   rel="noopener noreferrer"
                   href="https://calendly.com/game0play24/30min"
-                  className="group bg-gradient-to-r from-blue-600 to-purple-600 px-8 py-4 rounded-2xl font-semibold text-lg inline-flex items-center gap-3 hover:shadow-2xl hover:shadow-blue-500/25 transition-all duration-300"
+                  className="
+      group relative inline-flex items-center gap-3
+      px-8 py-4 rounded-2xl font-semibold text-lg
+      bg-primary/70 backdrop-blur-xl
+      border border-white/20
+      shadow-lg shadow-black/20
+      hover:bg-white/20
+      hover:shadow-blue-500/30
+      transition-all duration-300
+    "
                 >
-                  <Calendar className="w-5 h-5" />
-                  Book a Meeting
-                  <div className="w-0 group-hover:w-5 transition-all duration-300 overflow-hidden">
+                  {/* Glass highlight */}
+                  <span className="absolute inset-0 rounded-2xl bg-gradient-to-br from-white/20 to-transparent opacity-50 pointer-events-none" />
+
+                  <Calendar className="w-5 h-5 text-white" />
+                  <span className="relative z-10">Book a Meeting</span>
+
+                  <div className="relative z-10 w-0 group-hover:w-5 transition-all duration-300 overflow-hidden">
                     ↗
                   </div>
                 </a>
               </motion.div>
+
             </motion.div>
           </motion.div>
 
@@ -227,3 +241,4 @@ export default function ContactPage() {
     </section>
   );
 }
+

@@ -39,7 +39,7 @@ const videos: Video[] = [
 
 export default function OurWorks() {
   return (
-    <Container className="mx-auto my-8">
+    <Container className="mx-auto my-15">
     <section className="w-full   text-white mx-auto">
       <div className="container mx-auto px-4 ">
         <ComponentHeader title="Works Gallery" />
