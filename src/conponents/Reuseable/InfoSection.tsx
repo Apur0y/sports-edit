@@ -32,7 +32,7 @@ export default function InfoSection({
       className={`flex flex-col md:flex-row-reverse  text-black items-center  md:px-6 py-12  ${className}`}
     >
       {/* Left - Image */}
-      <div className="w-full md:w-1/2 sm:mx-auto  flex justify-start sm:justify-center md:justify-start ">
+      <div className="w-full md:w-2/3 sm:mx-auto  flex justify-start sm:justify-center md:justify-start ">
         <div className="relative">
           <Image
             src={imageUrl}
@@ -90,7 +90,7 @@ export default function InfoSection({
       </div>
 
       {/* Right - Content */}
-      <div className="w-full md:w-1/2 space-y-8 md:space-y-12">
+      <div className="w-full md:w-1/3 space-y-8 md:space-y-12">
         <div className="space-y-4 ">
           <h2 className="text-2xl md:text-3xl xl:text-5xl font-bold leading-tight">
             {title} <span className="text-primary">{title2}</span>

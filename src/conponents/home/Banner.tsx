@@ -7,11 +7,15 @@ export default function Banner() {
       
   return (
     <section
-      className="w-full min-h-[calc(100vh-100px)] bg-cover bg-center flex flex-col justify-between"
+      className="w-full min-h-[calc(100vh-50vh)] md:min-h-[calc(100vh-100px)] bg-cover bg-center flex flex-col justify-between"
       style={{
         backgroundImage:
           "url('https://static.wixstatic.com/media/ed3c46_ea68a5d166eb4c1abb4ab49ea28252ce~mv2.png')",
       }}
+      // style={{
+      //   backgroundImage:
+      //     "url('/banner1.png')",
+      // }}
     >
       {/* Top Content */}
       <Container className="flex flex-1 justify-start w-full mx-auto">

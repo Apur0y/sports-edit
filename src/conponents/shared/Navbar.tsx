@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { FaUserCircle, FaBars, FaTimes } from "react-icons/fa";
 import { RiArrowDropDownLine } from "react-icons/ri";
 import { motion, AnimatePresence } from "framer-motion";
@@ -10,6 +10,7 @@ export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [profileOpen, setProfileOpen] = useState(false);
   const [sportsOpen, setSportsOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
 
   const toggleMenu = () => setMenuOpen(!menuOpen);
   const toggleProfile = () => setProfileOpen(!profileOpen);
@@ -39,6 +40,15 @@ export default function Navbar() {
     { name: "Settings", href: "/settings" },
     { name: "Logout", href: "/logout" },
   ];
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 0);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   const mobileMenuVariants = {
     hidden: { opacity: 0, y: -20 },
@@ -75,7 +85,12 @@ export default function Navbar() {
   };
 
   return (
-    <nav className="sticky top-0 left-0 w-full z-50 bg-white bg-opacity-80 text-black shadow-lg">
+    <nav
+      className={` top-0 left-0 w-full z-50 transition-all duration-700
+
+ bg-white text-black sticky
+  `}
+    >
       <div className="container mx-auto px-6 flex justify-between items-center h-[72px]">
         {/* Logo */}
         <Link href="/" className="text-4xl font-bold tracking-wide flex ">
@@ -180,33 +195,31 @@ export default function Navbar() {
             )}
           </button>
 
-        <button onClick={toggleMenu} className="relative w-8 h-8">
-  <AnimatePresence mode="wait" initial={false}>
-    {menuOpen ? (
-      <motion.span
-        key="close"
-        initial={{ rotate: -90, opacity: 0, scale: 0.7 }}
-        animate={{ rotate: 0, opacity: 1, scale: 1 }}
-      
-        transition={{ duration: 0.25, ease: "easeInOut" }}
-        className="absolute inset-0 flex items-center justify-center"
-      >
-        <FaTimes size={24} />
-      </motion.span>
-    ) : (
-      <motion.span
-        key="menu"
-        initial={{ rotate: 90, opacity: 0, scale: 0.7 }}
-        animate={{ rotate: 0, opacity: 1, scale: 1 }}
-        transition={{ duration: 0.25, ease: "easeInOut" }}
-        className="absolute inset-0 flex items-center justify-center"
-      >
-        <FaBars size={24} />
-      </motion.span>
-    )}
-  </AnimatePresence>
-</button>
-
+          <button onClick={toggleMenu} className="relative w-8 h-8">
+            <AnimatePresence mode="wait" initial={false}>
+              {menuOpen ? (
+                <motion.span
+                  key="close"
+                  initial={{ rotate: -90, opacity: 0, scale: 0.7 }}
+                  animate={{ rotate: 0, opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.25, ease: "easeInOut" }}
+                  className="absolute inset-0 flex items-center justify-center"
+                >
+                  <FaTimes size={24} />
+                </motion.span>
+              ) : (
+                <motion.span
+                  key="menu"
+                  initial={{ rotate: 90, opacity: 0, scale: 0.7 }}
+                  animate={{ rotate: 0, opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.25, ease: "easeInOut" }}
+                  className="absolute inset-0 flex items-center justify-center"
+                >
+                  <FaBars size={24} />
+                </motion.span>
+              )}
+            </AnimatePresence>
+          </button>
         </div>
       </div>
 
@@ -283,3 +296,7 @@ export default function Navbar() {
     </nav>
   );
 }
+  //  ${
+  // scrolled
+  //   ? "md:bg-white md:text-black md:shadow-lg md:sticky"
+  //   : "md:absolute md:bg-transparent md:text-white md:shadow-none"}
