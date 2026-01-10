@@ -1,4 +1,4 @@
-// components/SportsOptions.tsx
+// components/SportsOptions.ts
 import {
   FaFutbol,
   FaBasketballBall,
