@@ -1,19 +1,33 @@
 "use client";
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { FaUserCircle, FaBars, FaTimes } from "react-icons/fa";
+import { RiArrowDropDownLine } from "react-icons/ri";
+import { motion, AnimatePresence } from "framer-motion";
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [profileOpen, setProfileOpen] = useState(false);
+  const [sportsOpen, setSportsOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
 
   const toggleMenu = () => setMenuOpen(!menuOpen);
   const toggleProfile = () => setProfileOpen(!profileOpen);
 
   const menuLinks = [
-    { name: "Home", href: "/",  },
-    { name: "All Games", href: "/games", games:["lacrossec", "soccer","football"] },
+    { name: "Home", href: "/" },
+    {
+      name: "Sports",
+      href: "#packages",
+      sports: [
+        { name: "Football", href: "/sports/football" },
+        { name: "Lacrosse", href: "/sports/lacrosse" },
+        { name: "Soccer", href: "/sports/soccer" },
+        { name: "Volleyball", href: "/sports/volleyball" },
+        { name: "Basketball", href: "/sports/basketball" },
+      ],
+    },
     { name: "Packages", href: "#packages" },
     { name: "Reviews", href: "#reviews" },
     { name: "FAQ", href: "#faq" },
@@ -27,17 +41,56 @@ export default function Navbar() {
     { name: "Logout", href: "/logout" },
   ];
 
-  const handleHover=(games:any)=>{
-    return(
-      <div>
-        {games?.map(p=>p)}
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 0);
+    };
 
-      </div>
-    )
-  }
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  const mobileMenuVariants = {
+    hidden: { opacity: 0, y: -20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        staggerChildren: 0.08,
+        delayChildren: 0.1,
+      },
+    },
+    exit: { opacity: 0, y: -20 },
+  };
+
+  const menuItemVariants = {
+    hidden: { opacity: 0, x: -20 },
+    visible: { opacity: 1, x: 0 },
+  };
+
+  const sportsVariants = {
+    hidden: { opacity: 0, height: 0 },
+    visible: {
+      opacity: 1,
+      height: "auto",
+      transition: {
+        staggerChildren: 0.06,
+      },
+    },
+  };
+
+  const sportsItemVariants = {
+    hidden: { opacity: 0, x: -10 },
+    visible: { opacity: 1, x: 0 },
+  };
 
   return (
-    <nav className="sticky top-0 left-0 w-full z-50 bg-white bg-opacity-80 text-black shadow-lg">
+    <nav
+      className={` top-0 left-0 w-full z-50 transition-all duration-700
+
+ bg-white text-black sticky
+  `}
+    >
       <div className="container mx-auto px-6 flex justify-between items-center h-[72px]">
         {/* Logo */}
         <Link href="/" className="text-4xl font-bold tracking-wide flex ">
@@ -55,12 +108,8 @@ export default function Navbar() {
             <span className="bg-gradient-to-r from-orange-500 to-yellow-400 bg-clip-text text-transparent font-bold">
               Picker
             </span> */}
-            <span className=" ">
-              Play
-            </span>
-            <span className=" ">
-              Picker
-            </span>
+            <span className=" ">Play</span>
+            <span className=" ">Picker</span>
           </div>
         </Link>
 
@@ -70,13 +119,31 @@ export default function Navbar() {
             <li
           
               key={link.name}
-              className="hover:text-orange-600 hover:underline transition uppercase text-sm font-medium flex items-center "
+              className="relative uppercase text-sm font-medium flex items-center group"
             >
-              
-              {link?.games ? <Link onMouseMove={()=>handleHover(link?.games+)}  className="tracking-widest " href={link.href}>{link.name}</Link> : <Link  className="tracking-widest " href={link.href}>{link.name}</Link>}
-                            
+              <Link
+                href={link.href}
+                className="tracking-widest hover:text-orange-600 hover:underline transition"
+              >
+                {link.name}
+              </Link>
 
-              {/* Add separator except for last item */}
+              {/* Sports Dropdown */}
+              {link.sports && (
+                <ul className="absolute top-full left-0 mt-3 w-auto  bg-white/80 backdrop-blur-2xl text-black rounded-lg shadow-xl overflow-hidden opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+                  {link.sports.map((sport) => (
+                    <li key={sport.name}>
+                      <Link
+                        href={sport.href}
+                        className="block px-4 py-2 hover:bg-orange-100 hover:text-orange-600 transition border-b"
+                      >
+                        {sport.name}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              )}
+
               {index < menuLinks.length - 1 && (
                 <span className="ml-5 text-gray-400">|</span>
               )}
@@ -92,9 +159,8 @@ export default function Navbar() {
               <FaUserCircle size={28} />
             </button>
 
-            {/* Profile Dropdown */}
             {profileOpen && (
-              <ul className="absolute right-0 mt-2 w-40 bg-white text-black rounded-lg shadow-lg overflow-hidden animate-fadeIn">
+              <ul className="absolute right-0 mt-2 w-40 bg-white text-black rounded-lg shadow-lg overflow-hidden z-50">
                 {profileLinks.map((link) => (
                   <li key={link.name}>
                     <Link
@@ -109,7 +175,6 @@ export default function Navbar() {
             )}
           </li>
         </ul>
-
 
         {/* Mobile Hamburger */}
         <div className="md:hidden flex items-center gap-4">
@@ -131,22 +196,108 @@ export default function Navbar() {
             )}
           </button>
 
-          <button onClick={toggleMenu}>
-            {menuOpen ? <FaTimes size={24} /> : <FaBars size={24} />}
+          <button onClick={toggleMenu} className="relative w-8 h-8">
+            <AnimatePresence mode="wait" initial={false}>
+              {menuOpen ? (
+                <motion.span
+                  key="close"
+                  initial={{ rotate: -90, opacity: 0, scale: 0.7 }}
+                  animate={{ rotate: 0, opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.25, ease: "easeInOut" }}
+                  className="absolute inset-0 flex items-center justify-center"
+                >
+                  <FaTimes size={24} />
+                </motion.span>
+              ) : (
+                <motion.span
+                  key="menu"
+                  initial={{ rotate: 90, opacity: 0, scale: 0.7 }}
+                  animate={{ rotate: 0, opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.25, ease: "easeInOut" }}
+                  className="absolute inset-0 flex items-center justify-center"
+                >
+                  <FaBars size={24} />
+                </motion.span>
+              )}
+            </AnimatePresence>
           </button>
         </div>
       </div>
 
       {/* Mobile Menu */}
-      {menuOpen && (
-        <ul className="md:hidden bg-black text-white px-6 pb-4 space-y-2 animate-slideDown">
-          {menuLinks.map((link) => (
-            <li key={link.name} className="hover:text-blue-400 transition">
-              <Link href={link.href}>{link.name}</Link>
-            </li>
-          ))}
-        </ul>
-      )}
+      <AnimatePresence>
+        {menuOpen && (
+          <motion.ul
+            variants={mobileMenuVariants}
+            initial="hidden"
+            animate="visible"
+            exit="exit"
+            className="md:hidden bg-black text-white px-6 pb-4 space-y-2 overflow-hidden"
+          >
+            {menuLinks.map((link) => (
+              <motion.li
+                key={link.name}
+                variants={menuItemVariants}
+                className="transition"
+              >
+                {link.name === "Sports" ? (
+                  <>
+                    <div
+                      className="flex justify-between items-center py-2"
+                      onClick={() => setSportsOpen(!sportsOpen)}
+                    >
+                      <span>{link.name}</span>
+
+                      {/* Animated Arrow */}
+                      <motion.span
+                        animate={{ rotate: sportsOpen ? 180 : 0 }}
+                        transition={{ duration: 0.25 }}
+                      >
+                        <RiArrowDropDownLine className="size-7" />
+                      </motion.span>
+                    </div>
+
+                    {/* Sports Submenu */}
+                    <AnimatePresence>
+                      {sportsOpen && (
+                        <motion.ul
+                          variants={sportsVariants}
+                          initial="hidden"
+                          animate="visible"
+                          exit="hidden"
+                          className="pl-4 overflow-hidden"
+                        >
+                          {link.sports?.map((sport) => (
+                            <motion.li
+                              key={sport.name}
+                              variants={sportsItemVariants}
+                            >
+                              <Link
+                                href={sport.href}
+                                className="block px-4 py-2 border-b border-white/10 hover:text-orange-400 transition"
+                              >
+                                {sport.name}
+                              </Link>
+                            </motion.li>
+                          ))}
+                        </motion.ul>
+                      )}
+                    </AnimatePresence>
+                  </>
+                ) : (
+                  <Link href={link.href} className="block py-2">
+                    {link.name}
+                  </Link>
+                )}
+              </motion.li>
+            ))}
+          </motion.ul>
+        )}
+      </AnimatePresence>
     </nav>
   );
 }
+  //  ${
+  // scrolled
+  //   ? "md:bg-white md:text-black md:shadow-lg md:sticky"
+  //   : "md:absolute md:bg-transparent md:text-white md:shadow-none"}

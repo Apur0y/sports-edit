@@ -1,54 +1,55 @@
 import React from "react";
 import { 
-  FaBrain, 
-  FaRocket, 
-  FaShieldAlt, 
-  FaUserFriends, 
-  FaChartLine, 
-  FaMagic 
-} from "react-icons/fa";
+  FaVideo, 
+  FaTrophy, 
+  FaBolt, 
+  FaFootballBall, 
+  FaPlayCircle, 
+  FaStar 
+} from 'react-icons/fa';
 import ComponentHeader from "../Reuseable/Header";
+import Container from "../shared/Container";
 
 const cardData = [
   {
-    icon: <FaBrain className="text-4xl text-blue-500" />,
-    title: "AI-Powered Matching",
-    description: "Our advanced algorithms analyze your skills and preferences to match you with perfect job opportunities."
+    icon: <FaVideo className="text-4xl text-blue-500" />,
+    title: "Professional Editing",
+    description: "Transform raw game footage into polished highlight reels that capture coaches' attention in seconds."
   },
   {
-    icon: <FaRocket className="text-4xl text-purple-500" />,
-    title: "Fast & Efficient",
-    description: "Reduce your job search time by up to 70% with our streamlined application process."
+    icon: <FaTrophy className="text-4xl text-purple-500" />,
+    title: "Recruiting-Focused",
+    description: "Videos optimized for college recruitment with your best plays showcased first to maximize impact."
   },
   {
-    icon: <FaShieldAlt className="text-4xl text-green-500" />,
-    title: "Secure & Private",
-    description: "Your data is protected with enterprise-grade security and privacy controls."
+    icon: <FaBolt className="text-4xl text-green-500" />,
+    title: "Fast Turnaround",
+    description: "Get your highlight reel delivered in 24-72 hours. Rush delivery available for urgent deadlines."
   },
   {
-    icon: <FaUserFriends className="text-4xl text-orange-500" />,
-    title: "Dedicated Support",
-    description: "Get personalized assistance from our team of career experts whenever you need it."
+    icon: <FaFootballBall className="text-4xl text-orange-500" />,
+    title: "All Sports Covered",
+    description: "Expert editing for football, basketball, soccer, volleyball, lacrosse, and all major sports."
   },
   {
-    icon: <FaChartLine className="text-4xl text-red-500" />,
-    title: "Career Analytics",
-    description: "Track your application performance and get insights to improve your success rate."
+    icon: <FaPlayCircle className="text-4xl text-red-500" />,
+    title: "Hudl & Veo Ready",
+    description: "Seamlessly work with footage from Hudl, Veo, or any recording source you provide."
   },
   {
-    icon: <FaMagic className="text-4xl text-cyan-500" />,
-    title: "Smart Resume Builder",
-    description: "Create professional, ATS-friendly resumes tailored to each job application."
+    icon: <FaStar className="text-4xl text-cyan-500" />,
+    title: "Unlimited Revisions",
+    description: "We'll perfect your video together until you're 100% satisfied and ready to send to coaches."
   }
 ];
-
 export default function ChooseUs() {
   return (
+    <Container className="mx-auto">   
     <section className="relative py-20 overflow-hidden ">
       {/* Background elements */}
-      <div className="absolute top-0 left-0 w-full h-72 bg-gradient-to-b from-blue-50 to-transparent"></div>
+      {/* <div className="absolute top-0 left-0 w-full h-72 bg-gradient-to-b from-blue-50 to-transparent"></div>
       <div className="absolute bottom-0 right-0 w-96 h-96 bg-purple-500/5 rounded-full blur-3xl"></div>
-      
+       */}
      
         <div className="relative z-10 container mx-auto">
 
@@ -91,5 +92,6 @@ export default function ChooseUs() {
         </div>
    
     </section>
+     </Container>
   );
 }
