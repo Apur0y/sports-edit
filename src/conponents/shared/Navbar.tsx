@@ -19,7 +19,7 @@ export default function Navbar() {
     { name: "Home", href: "/" },
     {
       name: "Sports",
-      href: "#packages",
+      href: "/works-preview",
       sports: [
         { name: "Football", href: "/sports/football" },
         { name: "Lacrosse", href: "/sports/lacrosse" },
@@ -28,7 +28,7 @@ export default function Navbar() {
         { name: "Basketball", href: "/sports/basketball" },
       ],
     },
-    { name: "Packages", href: "#packages" },
+    { name: "Packages", href: "/packages" },
     { name: "Reviews", href: "#reviews" },
     { name: "FAQ", href: "#faq" },
     { name: "Contact", href: "/contact" },

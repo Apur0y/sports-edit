@@ -8,7 +8,7 @@ import { useGetAllPackagesQuery } from "@/redux/api/packages/packageApi";
 
 export default function Packages() {
   const router = useRouter();
-  const { data:packages } = useGetAllPackagesQuery({});
+  const { data:packages, refetch } = useGetAllPackagesQuery({});
   console.log(packages)
 
   const user = "Apu"
@@ -66,7 +66,7 @@ export default function Packages() {
             popular={pkg.planName === "Standard"} // example logic
             recommended={pkg.planName === "Premium"} // example logic
             buttonText={
-              user?.data?.planName === pkg.planName ? "Active" : undefined
+              user === pkg.planName ? "Active" : undefined
             }
             onButtonClick={() => handleClick(pkg.planName)}
           />

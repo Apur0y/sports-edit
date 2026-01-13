@@ -16,7 +16,7 @@ interface MainVideo {
 
 
 export default function WorksCard({ video }: MainVideo) {
-  const [play, setPlay] = useState(false);
+  const [play, setPlay] = useState(true);
 
 
   return (

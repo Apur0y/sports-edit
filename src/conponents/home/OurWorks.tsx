@@ -31,9 +31,9 @@ const videos: Video[] = [
   {
     id: 4,
     sport: "Baseball",
-    title: "Baseball Montage",
+    title: "Lacrosse Highlight Video",
     thumbnail: "/videos/thumb4.jpg",
-    videoUrl: "https://www.youtube-nocookie.com/embed/4OcFQBwh1N8?si=cr5M3iMAoZjJ0xqX&amp;start=1",
+    videoUrl: "https://www.youtube.com/embed/I9c9Qu4sCtE?si=1K2VY1CjS5o6eoPS",
   },
 ];
 
