@@ -34,6 +34,11 @@ body {
   font-family: 'oswald', Helvetica, Arial, sans-serif;
 }
 
+.font-poppins {
+  font-family: var(--font-poppins), sans-serif;
+}
+
+
 @keyframes marquee {
   0% {
     transform: translateX(0%);

@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
-import { Oswald, Roboto_Condensed } from "next/font/google";
+import { Oswald, Poppins, Roboto_Condensed } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/conponents/shared/Navbar";
+import StoreProvider from "@/redux/features/StoreProvider";
 
 
 
@@ -14,6 +15,13 @@ const oswald =Oswald({
   subsets: ["cyrillic"],
   variable: "--font-condensed",
 })
+
+const poppins = Poppins({
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700"],
+  variable: "--font-poppins",
+});
+
 
 
 export const metadata: Metadata = {
@@ -32,11 +40,14 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${oswald.variable} font-sans antialiased bg-white text-black`}
+        className={`${poppins.variable} font-sans antialiased bg-white text-black`}
       >
+        <StoreProvider>
+
         
         <Navbar />
         {children}
+        </StoreProvider>
       </body>
     </html>
   );

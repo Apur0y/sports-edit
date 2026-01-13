@@ -101,7 +101,7 @@ export default function Navbar() {
             height={400}
             className="w-20 h-20 object-contain"
           />
-          <div className="text-2xl flex items-center">
+          <div className="text-2xl flex items-center uppercase">
             {/* <span className="bg-gradient-to-t from-blue-400 to-blue-600 bg-clip-text text-transparent font-bold">
               Play
             </span>
@@ -114,7 +114,7 @@ export default function Navbar() {
         </Link>
 
         {/* Desktop Menu */}
-        <ul className="hidden md:flex gap-6 items-center">
+        <ul className="hidden md:flex gap-6 items-center font-poppins">
           {menuLinks.map((link, index) => (
             <li
           
@@ -123,19 +123,19 @@ export default function Navbar() {
             >
               <Link
                 href={link.href}
-                className="tracking-widest hover:text-orange-600 hover:underline transition"
+                className=" hover:text-orange-600 hover:underline transition"
               >
                 {link.name}
               </Link>
 
               {/* Sports Dropdown */}
               {link.sports && (
-                <ul className="absolute top-full left-0 mt-3 w-auto  bg-white/80 backdrop-blur-2xl text-black rounded-lg shadow-xl overflow-hidden opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+                <ul className="absolute  top-full left-0 mt-3 w-auto  bg-white/80 backdrop-blur-2xl text-black rounded-lg shadow-xl overflow-hidden opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
                   {link.sports.map((sport) => (
                     <li key={sport.name}>
                       <Link
                         href={sport.href}
-                        className="block px-4 py-2 hover:bg-orange-100 hover:text-orange-600 transition border-b"
+                        className="block px-4 py-2 hover:bg-orange-100 hover:text-orange-600 transition border-b "
                       >
                         {sport.name}
                       </Link>

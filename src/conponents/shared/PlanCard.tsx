@@ -2,29 +2,31 @@ import { GiCheckMark } from "react-icons/gi";
 import { FaCrown, FaFire, FaStar, FaCheckCircle } from "react-icons/fa";
 
 interface PackageCardProps {
-  price: string;
-  planType: string;
+  price: number | string;
+  currency?: string;
+  planType: "one_time" | "subscription" | string;
   packageName: string;
-  permissions: string[];
+  permissions?: string[];
+  features?: string[];
   buttonText?: string;
   onButtonClick?: () => void;
   popular?: boolean;
   recommended?: boolean;
   savings?: string;
-  features?: string[];
 }
 
 export default function PackageCard({
   price,
+  currency = "usd",
   planType,
   packageName,
-  permissions,
+  permissions = [],
+  features = [],
   onButtonClick,
   buttonText,
   popular = false,
   recommended = false,
   savings,
-  features = []
 }: PackageCardProps) {
 
   const getPlanIcon = () => {
@@ -33,15 +35,19 @@ export default function PackageCard({
     return <FaStar className="text-blue-400 text-lg" />;
   };
 
+  const formattedPrice = `${currency.toUpperCase()} ${price}`;
+  const isSubscription = planType === "subscription";
+
   return (
-    <div className={`relative w-full max-w-[400px] border rounded-2xl overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-2xl
-      ${popular ? 'border-2 border-blue-500 shadow-xl' : 'border-gray-200 shadow-md'}`}>
-      
-      {/* Premium Badge */}
+    <div
+      className={`relative w-full max-w-[400px] border rounded-2xl overflow-hidden transition-all duration-500 hover:scale-103 hover:shadow-2xl
+      border-gray-200 shadow-md`}
+    >
+      {/* Recommended Badge */}
       {recommended && (
-        <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10">
+        <div className="absolute top-4 right-4 z-10">
           <div className="bg-gradient-to-r from-yellow-400 to-yellow-500 text-white text-xs font-bold px-4 py-2 rounded-full shadow-lg flex items-center gap-2">
-            <FaCrown className="text-white" />
+            <FaCrown />
             <span>RECOMMENDED</span>
           </div>
         </div>
@@ -51,32 +57,31 @@ export default function PackageCard({
       {popular && !recommended && (
         <div className="absolute top-4 right-4 z-10">
           <div className="bg-gradient-to-r from-orange-400 to-orange-500 text-white text-xs font-bold px-3 py-1 rounded-full shadow flex items-center gap-1">
-            <FaFire className="text-white text-xs" />
+            <FaFire className="text-xs" />
             <span>POPULAR</span>
           </div>
         </div>
       )}
 
-      {/* Card Header with Gradient */}
-      <div className={`bg-gradient-to-r p-6 text-center
-        ${popular ? 'from-blue-600 to-blue-800' : 'from-gray-800 to-gray-900'}`}>
-        
-        <div className="flex justify-center items-center gap-2 mb-2">
-          {getPlanIcon()}
-          <p className="text-sm font-medium text-blue-100 uppercase tracking-wider">
-            {planType}
-          </p>
-        </div>
-        
+      {/* Header */}
+      <div
+        className={`bg-gradient-to-r p-6 text-center from-gray-800 to-gray-900
+        `}
+      >
+       
         <h1 className="text-2xl font-bold text-white mb-2">
           {packageName}
         </h1>
-        
+
         <div className="flex items-baseline justify-center gap-1 mb-2">
-          <span className="text-4xl font-bold text-white">€{price}</span>
-          <span className="text-gray-300 text-sm">/month</span>
+          <span className="text-4xl font-bold text-white">
+            {formattedPrice}
+          </span>
+          {isSubscription && (
+            <span className="text-gray-300 text-sm">/month</span>
+          )}
         </div>
-        
+
         {savings && (
           <p className="text-green-300 text-sm font-medium">
             Save {savings} compared to monthly
@@ -84,15 +89,20 @@ export default function PackageCard({
         )}
       </div>
 
-      {/* Card Body */}
+      {/* Body */}
       <div className="bg-white p-6">
-        {/* Features Summary */}
+        {/* Feature tags */}
         {features.length > 0 && (
           <div className="mb-6">
-            <p className="text-xs font-semibold text-gray-500 uppercase mb-3">Key Features</p>
+            <p className="text-xs font-semibold text-gray-500 uppercase mb-3">
+              Key Features
+            </p>
             <div className="flex flex-wrap gap-2">
               {features.map((feature, index) => (
-                <span key={index} className="bg-blue-50 text-blue-700 text-xs font-medium px-3 py-1 rounded-full">
+                <span
+                  key={index}
+                  className="bg-blue-50 text-blue-700 text-xs font-medium px-3 py-1 rounded-full"
+                >
                   {feature}
                 </span>
               ))}
@@ -106,39 +116,36 @@ export default function PackageCard({
             <FaCheckCircle className="text-green-500" />
             What's included:
           </p>
-          
+
           <ul className="space-y-3">
-            {permissions.map((permission, index) => (
+            {(permissions.length ? permissions : features).map((item, index) => (
               <li key={index} className="flex items-start gap-3">
                 <GiCheckMark className="text-green-500 mt-0.5 flex-shrink-0" />
-                <span className="text-sm text-gray-700 leading-tight">{permission}</span>
+                <span className="text-sm text-gray-700 leading-tight">
+                  {item}
+                </span>
               </li>
             ))}
           </ul>
         </div>
 
-        {/* Action Button */}
+        {/* Button */}
         <button
           onClick={onButtonClick}
           disabled={!!buttonText}
-          className={`w-full py-3 px-4 rounded-xl font-semibold transition-all duration-300 focus:outline-none focus:ring-4
-            ${popular 
-              ? 'bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white shadow-lg hover:shadow-xl' 
-              : 'bg-gradient-to-r from-gray-800 to-gray-900 hover:from-gray-900 hover:to-gray-800 text-white shadow-md hover:shadow-lg'
-            }
-            ${buttonText ? 'opacity-75 cursor-not-allowed' : 'hover:-translate-y-1'}`}
+          className={`w-full py-3  px-4 cursor-pointer rounded-xl font-semibold transition-all duration-300 bg-gradient-to-r from-gray-800 to-gray-900 hover:from-gray-900 hover:to-gray-800  text-white shadow-md hover:shadow-lg
+            ${buttonText ? "opacity-75 cursor-not-allowed" : "hover:-translate-y-1"}
+          `}
         >
-          {buttonText || 'Get Started Now'}
+          {buttonText || "Get Started Now"}
         </button>
 
-        {/* Additional info */}
         <p className="text-xs text-gray-500 text-center mt-4">
-          No hidden fees · Cancel anytime · 14-day money-back guarantee
+          No hidden fees · Secure checkout · Fast delivery
         </p>
       </div>
 
-      {/* Hover effect overlay */}
-      <div className="absolute inset-0 bg-gradient-to-b from-blue-500/5 to-purple-500/5 opacity-0 hover:opacity-100 transition-opacity duration-300 pointer-events-none rounded-2xl"></div>
+      <div className="absolute inset-0 bg-gradient-to-b from-blue-500/5 to-purple-500/5 opacity-0 hover:opacity-100 transition-opacity duration-300 pointer-events-none rounded-2xl" />
     </div>
   );
 }

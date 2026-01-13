@@ -20,7 +20,7 @@ export default function HomePage() {
       <Banner />
       <FootballInfo/>
       <OurWorks/>
-      <SportsOptions />
+      {/* <SportsOptions /> */}
       <ChooseUs/>
      <ProcessSection/> 
      <AboutUs/>
