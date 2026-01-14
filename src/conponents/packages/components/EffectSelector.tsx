@@ -30,17 +30,51 @@ const effects: Effect[] = [
 const effectIcons = {
   circle: (
     <Image
-      src="/motion.png"
+      src="/circle.png"
       alt="Motion"
-      width={300}
+      width={500}
       height={400}
-      className="object-contain"
+      className="object-contain rounded-md"
     />
   ),
-  spotlight: <Target className="w-16 h-16 text-white" />,
-  motion: <Sparkles className="w-16 h-16 text-white" />,
-  shadow: <Droplet className="w-16 h-16 text-white" />,
-  arrow: <ArrowRight className="w-16 h-16 text-white" />,
+  spotlight: (
+    <Image
+      src="/lac3.jpg"
+      alt="Motion"
+      width={500}
+      height={400}
+      className="object-contain rounded-md"
+    />
+  ),
+  motion: (
+    <Image
+      src="/motion.png"
+      alt="Motion"
+      width={500}
+      height={400}
+      className="object-contain rounded-md"
+    />
+  ),
+  shadow: (
+    <video
+      src="/Arrowv.mp4"
+      autoPlay
+      loop
+      muted
+      playsInline
+      className="w-full h-60 object-contain rounded-md"
+    />
+  ),
+
+  arrow: (
+    <Image
+      src="/arrow.png"
+      alt="Motion"
+      width={500}
+      height={400}
+      className="object-contain rounded-md"
+    />
+  ),
 };
 
 export function EffectSelector({
@@ -72,7 +106,7 @@ export function EffectSelector({
                 <button
                   key={effect.id}
                   onClick={() => onToggle(effect)}
-                  onMouseEnter={() => setPreviewEffect(effect.id)}
+                  onMouseDown={() => setPreviewEffect(effect.id)}
                   onMouseLeave={() => setPreviewEffect(selectedEffects[0]?.id)}
                   className={`relative p-2  border transition-all duration-200 cursor-pointer flex items-center gap-2 ${
                     isSelected
@@ -126,12 +160,10 @@ export function EffectSelector({
 
         {/* Preview Area */}
         {previewEffect && (
-          <div className="flex-1 bg-slate-900 rounded-xl p-1 flex items-center justify-center animate-in fade-in slide-in-from-right-2 duration-300">
+          <div className="flex-1 bg-primary  rounded-xl p-1 flex items-center justify-center animate-in fade-in slide-in-from-right-2 duration-300">
+            {effectIcons[previewEffect as keyof typeof effectIcons]}
             <div className="text-center">
-              <div className=" bg-gradient-to-br from-cyan-500 to-blue-600 rounded-lg mb-4 flex items-center justify-center mx-auto">
-                {effectIcons[previewEffect as keyof typeof effectIcons]}
-              </div>
-{/* 
+              {/* 
               <p className="text-white font-semibold">
                 {effects.find((e) => e.id === previewEffect)?.name}
               </p>
