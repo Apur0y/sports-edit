@@ -45,7 +45,7 @@ export default function FootballInfo() {
         <Container>
           <div className="relative z-20">
             <InfoSection
-              imageUrl="/football-2.png"
+              imageUrl="/football-3.png"
               title="Ready to"
               title2={
                 <>

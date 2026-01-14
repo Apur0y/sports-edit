@@ -27,7 +27,7 @@ const owners: Owner[] = [
 export default function AboutUs() {
   return (
     <div className=" bg-fixed bg-center bg-cover bg-no-repeat" style={{ backgroundImage: "url('/multisports.png')" }}>
-      <div className="h-full w-full flex items-center justify-center bg-black/90 text-white pt-32">
+      {/* <div className="h-full w-full flex items-center justify-center bg-black/90 text-white pt-32">
           <div className="max-w-6xl mx-auto text-white">
             
           <div className="grid gap-10 md:grid-cols-2">
@@ -55,8 +55,9 @@ export default function AboutUs() {
             ))}
           </div>
         </div>
-      </div>
-      <div className="h-full w-full flex items-center justify-center bg-black/90 text-white py-32">
+      </div> */}
+      <div className="h-full w-full flex flex-col items-center justify-center bg-black/90 text-white py-32">
+      <h1 className='text-3xl md:text-5xl  mb-10 '>Client Testimonials</h1>  
       {/* <TestimonialsSection/> */}
       <TestimonialsSection/>
       </div>

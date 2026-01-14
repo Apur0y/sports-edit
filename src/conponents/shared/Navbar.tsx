@@ -21,7 +21,7 @@ export default function Navbar() {
       name: "Sports",
       href: "/works-preview",
       sports: [
-        { name: "Football", href: "/sports/football" },
+        { name: "Football", href: "/works-preview" },
         { name: "Lacrosse", href: "/sports/lacrosse" },
         { name: "Soccer", href: "/sports/soccer" },
         { name: "Volleyball", href: "/sports/volleyball" },
@@ -29,8 +29,8 @@ export default function Navbar() {
       ],
     },
     { name: "Packages", href: "/packages" },
-    { name: "Reviews", href: "#reviews" },
-    { name: "FAQ", href: "#faq" },
+    { name: "About", href: "/about-us" },
+    { name: "FAQ", href: "/#faq" },
     { name: "Contact", href: "/contact" },
   ];
 

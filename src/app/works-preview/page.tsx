@@ -15,29 +15,22 @@ const videos: Video[] = [
     id: 1,
     sport: "Football",
     title: "High School Football Highlights",
-    thumbnail: "/videos/thumb1.jpg",
-    videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    thumbnail: "/motion.png",
+    videoUrl: "https://www.youtube.com/embed/O__cpWn2mPY?si=AyhXaWCQ1_D_z3Ck",
   },
   {
     id: 2,
     sport: "Basketball",
     title: "College Basketball Highlights",
-    thumbnail: "/videos/thumb2.jpg",
-    videoUrl: "https://www.youtube.com/embed/oHg5SJYRHA0",
-  },
-  {
-    id: 3,
-    sport: "Football",
-    title: "Recruiting Highlights 2024",
-    thumbnail: "/videos/thumb3.jpg",
-    videoUrl: "https://www.youtube.com/embed/aqz-KE-bpKQ",
+    thumbnail: "/arrow.png",
+    videoUrl: "https://www.youtube-nocookie.com/embed/4OcFQBwh1N8?si=cr5M3iMAoZjJ0xqX&amp;start=1",
   },
   {
     id: 4,
-    sport: "Baseball",
-    title: "Baseball Montage",
-    thumbnail: "/videos/thumb4.jpg",
-    videoUrl: "https://www.youtube.com/embed/V-_O7nl0Ii0",
+    sport: "Lacrosse",
+    title: "Lacrosse Highlight Video",
+    thumbnail: "/spotlight.png",
+    videoUrl: "https://www.youtube.com/embed/I9c9Qu4sCtE?si=1K2VY1CjS5o6eoPS",
   },
 ];
 
@@ -52,7 +45,7 @@ export default function Page() {
       : videos.filter((v) => v.sport === selectedSport);
 
   return (
-    <div className="w-full min-h-screen ">
+    <div className="w-full min-h-screen text-black">
       {/* Main Video Section */}
       <div className="max-w-7xl mx-auto px-4 py-10 flex flex-col lg:flex-row gap-8">
         {/* Left Side - Playing Video */}
@@ -107,6 +100,7 @@ export default function Page() {
                   width={700}
                   className="w-24 h-16 rounded-lg object-cover"
                 />
+                
                 <div className="flex-1">
                   <h4 className="text-sm font-medium  line-clamp-2">
                     {video.title}
