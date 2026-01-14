@@ -1,0 +1,98 @@
+import React from 'react';
+import { Film, Shuffle, Music, Check } from 'lucide-react';
+
+interface AdditionalFeaturesProps {
+  selectedFeatures: string[];
+  onToggle: (feature: string) => void;
+}
+
+const features = [
+  {
+    id: 'intro',
+    name: 'Intro Page',
+    description: 'Professional branded intro sequence',
+    icon: Film,
+  },
+  {
+    id: 'transitions',
+    name: 'Smooth Transitions',
+    description: 'Seamless flow between clips',
+    icon: Shuffle,
+    recommended: true,
+  },
+  {
+    id: 'music',
+    name: 'Background Music',
+    description: 'Curated audio tracks',
+    icon: Music,
+  },
+];
+
+export function AdditionalFeatures({ selectedFeatures, onToggle }: AdditionalFeaturesProps) {
+  return (
+    <section className="bg-white rounded-2xl p-8 shadow-sm border border-slate-200">
+      <div className="mb-6">
+        <h2 className="text-2xl font-bold text-slate-900 mb-2">Additional Features</h2>
+        <p className="text-slate-600">Enhance your package with premium add-ons</p>
+      </div>
+
+      <div className="space-y-4">
+        {features.map((feature) => {
+          const Icon = feature.icon;
+          const isSelected = selectedFeatures.includes(feature.id);
+
+          return (
+            <button
+              key={feature.id}
+              onClick={() => onToggle(feature.id)}
+              className={`w-full p-5 rounded-xl border-2 transition-all duration-200 text-left ${
+                isSelected
+                  ? 'border-cyan-500 bg-cyan-50 shadow-lg shadow-cyan-100'
+                  : 'border-slate-200 bg-white hover:border-slate-300 hover:shadow-md'
+              }`}
+            >
+              <div className="flex items-start gap-4">
+                {/* Custom Checkbox */}
+                <div
+                  className={`w-6 h-6 rounded-md border-2 flex items-center justify-center flex-shrink-0 transition-all ${
+                    isSelected
+                      ? 'bg-cyan-500 border-cyan-500'
+                      : 'bg-white border-slate-300'
+                  }`}
+                >
+                  {isSelected && <Check className="w-4 h-4 text-white" />}
+                </div>
+
+                {/* Icon */}
+                <div
+                  className={`w-12 h-12 rounded-lg flex items-center justify-center flex-shrink-0 ${
+                    isSelected
+                      ? 'bg-cyan-500 text-white'
+                      : 'bg-slate-100 text-slate-600'
+                  }`}
+                >
+                  <Icon className="w-6 h-6" />
+                </div>
+
+                {/* Content */}
+                <div className="flex-1">
+                  <div className="flex items-center gap-2 mb-1">
+                    <span className="font-semibold text-lg text-slate-900">
+                      {feature.name}
+                    </span>
+                    {feature.recommended && (
+                      <span className="bg-gradient-to-r from-amber-400 to-orange-500 text-white text-xs font-bold px-2 py-0.5 rounded-full">
+                        Recommended
+                      </span>
+                    )}
+                  </div>
+                  <p className="text-sm text-slate-500">{feature.description}</p>
+                </div>
+              </div>
+            </button>
+          );
+        })}
+      </div>
+    </section>
+  );
+}

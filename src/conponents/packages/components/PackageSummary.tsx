@@ -1,0 +1,162 @@
+import React from 'react';
+import { ArrowRight, Package } from 'lucide-react';
+import { ConfigState } from '../App';
+
+interface PackageSummaryProps {
+  config: ConfigState;
+}
+
+export function PackageSummary({ config }: PackageSummaryProps) {
+  // Pricing calculation logic
+  const calculatePrice = () => {
+    // Base price by clips
+    let basePrice = 0;
+    if (config.clipOption === '10-15') basePrice = 299;
+    else if (config.clipOption === '20-25') basePrice = 499;
+    else if (config.clipOption === '35-40') basePrice = 799;
+    else if (config.clipOption === 'custom') {
+      basePrice = Math.max(config.customClipCount * 15, 100);
+    }
+
+    // Delivery multiplier
+    let deliveryMultiplier = 1;
+    if (config.deliveryDays === 2) deliveryMultiplier = 1.3;
+    else if (config.deliveryDays === 1) deliveryMultiplier = 1.6;
+
+    // Revision cost
+    let revisionCost = 0;
+    if (config.revisions === 3) revisionCost = 50;
+    else if (config.revisions === 5) revisionCost = 100;
+
+    // Effects cost
+    const effectsCost = config.selectedEffects.reduce((sum, effect) => sum + effect.price, 0);
+
+    // Additional features cost
+    const featuresCost = config.additionalFeatures.length * 25;
+
+    const subtotal = basePrice * deliveryMultiplier + revisionCost + effectsCost + featuresCost;
+    return Math.round(subtotal);
+  };
+
+  const totalPrice = calculatePrice();
+
+  const getClipDisplay = () => {
+    if (config.clipOption === 'custom') {
+      return `${config.customClipCount} Clips (Custom)`;
+    }
+    return `${config.clipOption} Clips`;
+  };
+
+  const getDeliveryDisplay = () => {
+    if (config.deliveryDays === 5) return '5 Days (Regular)';
+    if (config.deliveryDays === 2) return '2 Days (Fast)';
+    return '24 Hours (Express)';
+  };
+
+  return (
+    <div className="bg-white rounded-2xl p-8 shadow-xl border border-slate-200">
+      {/* Header */}
+      <div className="flex items-center gap-3 mb-6 pb-6 border-b border-slate-200">
+        <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-cyan-500 to-blue-600 flex items-center justify-center">
+          <Package className="w-6 h-6 text-white" />
+        </div>
+        <div>
+          <h3 className="text-xl font-bold text-slate-900">Package Summary</h3>
+          <p className="text-sm text-slate-500">Your custom configuration</p>
+        </div>
+      </div>
+
+      {/* Configuration Details */}
+      <div className="space-y-4 mb-6">
+        {/* Clips */}
+        <div className="flex items-start justify-between">
+          <div>
+            <div className="font-semibold text-slate-900">Video Clips</div>
+            <div className="text-sm text-slate-500">{getClipDisplay()}</div>
+          </div>
+        </div>
+
+        {/* Delivery */}
+        <div className="flex items-start justify-between">
+          <div>
+            <div className="font-semibold text-slate-900">Delivery Time</div>
+            <div className="text-sm text-slate-500">{getDeliveryDisplay()}</div>
+          </div>
+        </div>
+
+        {/* Revisions */}
+        <div className="flex items-start justify-between">
+          <div>
+            <div className="font-semibold text-slate-900">Revisions</div>
+            <div className="text-sm text-slate-500">{config.revisions} Round(s)</div>
+          </div>
+        </div>
+
+        {/* Effects */}
+        {config.selectedEffects.length > 0 && (
+          <div>
+            <div className="font-semibold text-slate-900 mb-2">Video Effects</div>
+            <div className="space-y-1">
+              {config.selectedEffects.map((effect) => (
+                <div
+                  key={effect.id}
+                  className="flex items-center justify-between text-sm"
+                >
+                  <span className="text-slate-600">{effect.name}</span>
+                  <span className="text-cyan-600 font-semibold">+${effect.price}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+
+        {/* Additional Features */}
+        {config.additionalFeatures.length > 0 && (
+          <div>
+            <div className="font-semibold text-slate-900 mb-2">Additional Features</div>
+            <ul className="space-y-1">
+              {config.additionalFeatures.map((feature) => {
+                const featureNames: { [key: string]: string } = {
+                  intro: 'Intro Page',
+                  transitions: 'Smooth Transitions',
+                  music: 'Background Music',
+                };
+                return (
+                  <li key={feature} className="text-sm text-slate-600 flex items-center gap-2">
+                    <div className="w-1.5 h-1.5 rounded-full bg-cyan-500" />
+                    {featureNames[feature]}
+                  </li>
+                );
+              })}
+            </ul>
+          </div>
+        )}
+      </div>
+
+      {/* Divider */}
+      <div className="border-t border-slate-200 my-6" />
+
+      {/* Total Price */}
+      <div className="mb-6">
+        <div className="flex items-end justify-between mb-2">
+          <span className="text-slate-600 font-medium">Total Price</span>
+          <div className="text-right">
+            <div className="text-4xl font-bold text-slate-900">${totalPrice}</div>
+            <div className="text-sm text-slate-500">one-time payment</div>
+          </div>
+        </div>
+      </div>
+
+      {/* CTA Button */}
+      <button className="w-full bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-600 hover:to-blue-700 text-white font-bold py-4 px-6 rounded-xl transition-all duration-200 shadow-lg shadow-cyan-200 hover:shadow-xl hover:shadow-cyan-300 flex items-center justify-center gap-2 group">
+        Continue Order
+        <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+      </button>
+
+      {/* Trust Badge */}
+      <div className="mt-4 text-center text-xs text-slate-500">
+        <p>🔒 Secure checkout • 30-day money back guarantee</p>
+      </div>
+    </div>
+  );
+}
