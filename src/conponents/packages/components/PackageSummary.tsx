@@ -27,7 +27,7 @@ const maxClips = getMaxClips();
 
 
     // Delivery multiplier
-    let deliveryMultiplier = 1;
+    let deliveryMultiplier = 0;
     if (config.deliveryDays === 2) deliveryMultiplier = 20;
     else if (config.deliveryDays === 1) deliveryMultiplier = 50;
 

@@ -28,7 +28,7 @@ export default function CustomizePackage() {
     customClipCount: 50,
     deliveryDays: 5,
     revisions: 1,
-    selectedEffects: [],
+    selectedEffects: [{ id: 'circle', name: 'Circle Highlight', price: 2 }],
     additionalFeatures: [],
   });
 
