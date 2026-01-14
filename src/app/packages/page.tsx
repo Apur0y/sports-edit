@@ -1,11 +1,13 @@
+import Packages from '@/conponents/home/Packages'
 import CustomizePackage from '@/conponents/packages/CumtomizePackages'
-import CustomPackage from '@/conponents/packages/CustomPackage'
+import PackagesPage from '@/conponents/packages/CustomPackage'
 import React from 'react'
 
 export default function page() {
   return (
-    <div className='bg-black'>
+    <div className='bg-gradient-to-br from-slate-50 to-slate-100'>
      <CustomizePackage/>
+     <PackagesPage/>
     </div>
   )
 }

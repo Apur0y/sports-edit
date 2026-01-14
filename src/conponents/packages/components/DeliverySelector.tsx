@@ -52,7 +52,7 @@ export function DeliverySelector({ selectedDays, onSelect }: DeliverySelectorPro
               onClick={() => onSelect(option.days)}
               className={`relative p-1  border  transition-all duration-200 cursor-pointer ${
                 isSelected
-                  ? 'border-cyan-500 bg-cyan-50 shadow-lg shadow-cyan-100'
+                  ? 'border-orange-500 bg-orange-50 shadow-lg  shadow-orange-100'
                   : 'border-gray-100 bg-white hover:border-slate-300 hover:shadow-md'
               }`}
             >

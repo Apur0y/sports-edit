@@ -34,10 +34,10 @@ export function RevisionSelector({ selectedRevisions, onSelect }: RevisionSelect
             <button
               key={option.value}
               onClick={() => onSelect(option.value)}
-              className={`p-2 border transition-all duration-200 cursor-pointer ${
+              className={`p-2 border transition-all duration-200 cursor-pointer text-slate-900  ${
                 isSelected
-                  ? 'border-cyan-500 bg-cyan-50 text-cyan-700 shadow-lg shadow-cyan-100'
-                  : 'border-gray-100 bg-white text-slate-900 hover:border-slate-300 hover:shadow-md'
+                  ? 'border-orange-500 bg-orange-50 shadow-lg  shadow-orange-100'
+                  : 'border-gray-100 bg-white  hover:border-slate-300 hover:shadow-md'
               }`}
             >
               <div className="flex items-center gap-2">

@@ -57,7 +57,7 @@ export function PackageSummary({ config }: PackageSummaryProps) {
     <div className="bg-white rounded-2xl p-8 shadow-xl border border-slate-200">
       {/* Header */}
       <div className="flex items-center gap-3 mb-6 pb-6 border-b border-slate-200">
-        <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-cyan-500 to-blue-600 flex items-center justify-center">
+        <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-orange-500 to-primary flex items-center justify-center">
           <Package className="w-6 h-6 text-white" />
         </div>
         <div>
@@ -148,7 +148,7 @@ export function PackageSummary({ config }: PackageSummaryProps) {
       </div>
 
       {/* CTA Button */}
-      <button className="w-full bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-600 hover:to-blue-700 text-white font-bold py-4 px-6 rounded-xl transition-all duration-200 shadow-lg shadow-cyan-200 hover:shadow-xl hover:shadow-cyan-300 flex items-center justify-center gap-2 group">
+      <button className="w-full bg-gradient-to-r  from-orange-500 to-primary hover:from-orange-600 hover:to-primary text-white font-bold py-4 px-6 rounded-xl transition-all duration-200 shadow-lg shadow-orange-200 hover:shadow-xl hover:shadow-orange-300 cursor-pointer flex items-center justify-center gap-2 group">
         Continue Order
         <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
       </button>

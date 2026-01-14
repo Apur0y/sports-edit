@@ -32,7 +32,7 @@ export function ClipSelector({ clipOption, customClipCount, onUpdate }: ClipSele
               onClick={() => onUpdate(option.value, customClipCount)}
               className={` transition-all duration-200 text-left flex items-center gap-2 border cursor-pointer ${
                 clipOption === option.value
-                  ? 'border-cyan-500 bg-cyan-50 shadow-lg  shadow-cyan-100'
+                  ? 'border-orange-500 bg-orange-50 shadow-lg  shadow-orange-100'
                   : 'border-white bg-white hover:border-slate-300 hover:shadow-md'
               }`}
             >
