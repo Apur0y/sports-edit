@@ -11,10 +11,10 @@ export function PackageSummary({ config }: PackageSummaryProps) {
   // Pricing calculation logic
   const calculatePrice = () => {
     // Base price by clips
-    let basePrice = 0;
-    if (config.clipOption === '10-15') basePrice = 50;
-    else if (config.clipOption === '20-25') basePrice = 80;
-    else if (config.clipOption === '35-40') basePrice = 125;
+    // let basePrice = 0;
+    // if (config.clipOption === '10-15') basePrice = 50;
+    // else if (config.clipOption === '20-25') basePrice = 80;
+    // else if (config.clipOption === '35-40') basePrice = 125;
  
     const getMaxClips = () => {
   if (config.clipOption === '10-15') return 15;

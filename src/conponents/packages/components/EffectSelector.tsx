@@ -1,12 +1,4 @@
 import React, { useState } from "react";
-import {
-  Circle,
-  Sparkles,
-  Target,
-  Droplet,
-  ArrowRight,
-  Check,
-} from "lucide-react";
 import { Effect } from "../CumtomizePackages";
 import {
   MdOutlineRadioButtonChecked,
@@ -81,7 +73,7 @@ export function EffectSelector({
   selectedEffects,
   onToggle,
 }: EffectSelectorProps) {
-  const [previewEffect, setPreviewEffect] = useState<string | null>();
+  const [previewEffect, setPreviewEffect] = useState<string | null>(effects[0].id);
 
   return (
     <section className="bg-white rounded-2xl p-8 shadow-sm border border-slate-200">
@@ -99,15 +91,18 @@ export function EffectSelector({
         <div className="lg:w-96">
           <div className="flex flex-col  gap-4">
             {effects.map((effect) => {
-              const Icon = effectIcons[effect.id as keyof typeof effectIcons];
+             
               const isSelected = selectedEffects[0]?.id === effect.id;
 
               return (
                 <button
                   key={effect.id}
-                  onClick={() => onToggle(effect)}
-                  onMouseDown={() => setPreviewEffect(effect.id)}
-                  onMouseLeave={() => setPreviewEffect(selectedEffects[0]?.id)}
+                  onClick={() => {
+                    onToggle(effect);
+                    setPreviewEffect(effect.id);
+                  }}
+                  // onMouseDown={() => setPreviewEffect(effect.id)}
+                  // onMouseLeave={() => setPreviewEffect(selectedEffects[0]?.id)}
                   className={`relative p-2  border transition-all duration-200 cursor-pointer flex items-center gap-2 ${
                     isSelected
                       ? "border-orange-500 bg-orange-50 shadow-lg shadow-orange-100"

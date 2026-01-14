@@ -86,9 +86,7 @@ export default function Navbar() {
 
   return (
     <nav
-      className={` top-0 left-0 w-full z-50 transition-all duration-700
-
- bg-white text-black sticky
+      className={` top-0 left-0 w-full z-50 transition-all duration-700 bg-white text-black sticky shadow-md
   `}
     >
       <div className="container mx-auto px-6 flex justify-between items-center h-[72px]">

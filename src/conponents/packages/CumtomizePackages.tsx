@@ -102,7 +102,7 @@ export default function CustomizePackage() {
 
           {/* Right Column - Package Summary */}
           <div className="lg:w-[30%]">
-            <div className="lg:sticky lg:top-8">
+            <div className="lg:sticky lg:top-20">
               <PackageSummary config={config} />
             </div>
           </div>
