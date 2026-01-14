@@ -15,6 +15,7 @@ export function DeliverySelector({ selectedDays, onSelect }: DeliverySelectorPro
       time: '5 Days',
       icon: Clock,
       color: 'slate',
+      badge: '+0$',
     },
     {
       days: 2 as const,
@@ -22,6 +23,7 @@ export function DeliverySelector({ selectedDays, onSelect }: DeliverySelectorPro
       time: '2 Days',
       icon: Zap,
       color: 'blue',
+      badge: '+20$',
     },
     {
       days: 1 as const,
@@ -29,7 +31,7 @@ export function DeliverySelector({ selectedDays, onSelect }: DeliverySelectorPro
       time: '24 Hours',
       icon: Rocket,
       color: 'orange',
-      badge: 'Urgent',
+      badge: '+50$',
     },
   ];
 
@@ -73,6 +75,19 @@ export function DeliverySelector({ selectedDays, onSelect }: DeliverySelectorPro
                 <div className=" text-slate-900 mb-1">{option.label}</div>
                 <div className="text-sm  text-slate-500">{option.time}</div>
                 </div>
+                {option.badge && (
+                  <span
+                    className={`text-xs px-2 py-0.5 rounded-full ${
+                      isSelected
+                        ? 'bg-green-200 text-cyan-800'
+                        : option.badge === 'Premium'
+                        ? 'bg-amber-100 text-amber-700'
+                        : 'bg-slate-100 text-slate-600'
+                    }`}
+                  >
+                    {option.badge}
+                  </span>
+                )}
               </div>
             </button>
           );

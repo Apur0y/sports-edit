@@ -10,10 +10,10 @@ interface ClipSelectorProps {
 
 export function ClipSelector({ clipOption, customClipCount, onUpdate }: ClipSelectorProps) {
   const options = [
-    { value: '10-15' as const, label: '10–15 Clips', description: 'Small project' },
-    { value: '20-25' as const, label: '20–25 Clips', description: 'Medium scope' },
-    { value: '35-40' as const, label: '35–40 Clips', description: 'Large project', popular: true },
-    { value: 'custom' as const, label: 'Custom Clips', description: 'Choose your own' },
+    { value: '10-15' as const, label: '10–15 Clips', description: 'Small project',extra:"+50$" },
+    { value: '20-25' as const, label: '20–25 Clips', description: 'Medium scope',extra:"+80$"},
+    { value: '35-40' as const, label: '35–40 Clips', description: 'Large project', extra:"+125$" },
+
   ];
 
   return (
@@ -24,16 +24,16 @@ export function ClipSelector({ clipOption, customClipCount, onUpdate }: ClipSele
     
       </div>
 
-      <div className="gap-4 space-y-2">
+      <div className="gap-4 space-y-3">
         {options.map((option) => (
           <div key={option.value} className="relative">
          
             <button
               onClick={() => onUpdate(option.value, customClipCount)}
-              className={` transition-all duration-200 text-left flex items-center gap-2 border cursor-pointer ${
+              className={` transition-all duration-200 text-left flex items-center gap-2 border cursor-pointer p-1 ${
                 clipOption === option.value
                   ? 'border-orange-500 bg-orange-50 shadow-lg  shadow-orange-100'
-                  : 'border-white bg-white hover:border-slate-300 hover:shadow-md'
+                  : 'border-gray-100 bg-white hover:border-slate-300 hover:shadow-md'
               }`}
             >
               { clipOption === option.value?<MdOutlineRadioButtonChecked className='text-black' />: <MdOutlineRadioButtonUnchecked /> }
@@ -44,6 +44,16 @@ export function ClipSelector({ clipOption, customClipCount, onUpdate }: ClipSele
                 </div>
               )} */}
               <div className=" w-20 text-slate-900 mb-1">{option.label}</div>
+              {option.extra && (
+                  <span
+                    className={`text-xs px-2 py-0.5 rounded-full ${
+                      clipOption === option.value
+                        ? 'bg-green-200 text-cyan-800'
+                        :"bg-slate-100 text-slate-600"}`}
+                  >
+                    {option.extra}
+                  </span>
+                )}
             </button>
           </div>
         ))}

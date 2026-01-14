@@ -86,7 +86,7 @@ export default function CustomizePackage() {
                updateConfig({ selectedEffects: newEffects });
              }}
            />
-            {/*
+            
 
             <AdditionalFeatures
               selectedFeatures={config.additionalFeatures}
@@ -97,7 +97,7 @@ export default function CustomizePackage() {
                   : [...config.additionalFeatures, feature];
                 updateConfig({ additionalFeatures: newFeatures });
               }}
-            /> */}
+            />
           </div>
           
 

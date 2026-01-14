@@ -9,9 +9,9 @@ interface RevisionSelectorProps {
 
 export function RevisionSelector({ selectedRevisions, onSelect }: RevisionSelectorProps) {
   const options = [
-    { value: 1 as const, label: '1 Revision', tag: 'Regular' },
-    { value: 3 as const, label: '3 Revisions' },
-    { value: 5 as const, label: '5 Revisions', tag: 'Premium' },
+    { value: 1 as const, label: '1 Revision', tag: '+0$' },
+    { value: 3 as const, label: '3 Revisions',tag: '+10$' },
+    { value: 5 as const, label: '5 Revisions', tag: '+20$' },
   ];
 
   return (
@@ -42,11 +42,11 @@ export function RevisionSelector({ selectedRevisions, onSelect }: RevisionSelect
             >
               <div className="flex items-center gap-2">
                     { isSelected?<MdOutlineRadioButtonChecked className='text-black' />: <MdOutlineRadioButtonUnchecked /> } <span className="">{option.label}</span>
-                {/* {option.tag && (
+                {option.tag && (
                   <span
                     className={`text-xs px-2 py-0.5 rounded-full ${
                       isSelected
-                        ? 'bg-cyan-200 text-cyan-800'
+                        ? 'bg-green-200 text-cyan-800'
                         : option.tag === 'Premium'
                         ? 'bg-amber-100 text-amber-700'
                         : 'bg-slate-100 text-slate-600'
@@ -54,7 +54,7 @@ export function RevisionSelector({ selectedRevisions, onSelect }: RevisionSelect
                   >
                     {option.tag}
                   </span>
-                )} */}
+                )}
               </div>
             </button>
           );
