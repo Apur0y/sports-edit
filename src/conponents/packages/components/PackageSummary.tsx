@@ -1,6 +1,7 @@
 import React from 'react';
 import { ArrowRight, Package } from 'lucide-react';
-import { ConfigState } from '../App';
+import { ConfigState } from '../CumtomizePackages';
+
 
 interface PackageSummaryProps {
   config: ConfigState;
@@ -11,30 +12,40 @@ export function PackageSummary({ config }: PackageSummaryProps) {
   const calculatePrice = () => {
     // Base price by clips
     let basePrice = 0;
-    if (config.clipOption === '10-15') basePrice = 299;
-    else if (config.clipOption === '20-25') basePrice = 499;
-    else if (config.clipOption === '35-40') basePrice = 799;
-    else if (config.clipOption === 'custom') {
-      basePrice = Math.max(config.customClipCount * 15, 100);
-    }
+    if (config.clipOption === '10-15') basePrice = 50;
+    else if (config.clipOption === '20-25') basePrice = 80;
+    else if (config.clipOption === '35-40') basePrice = 125;
+ 
+    const getMaxClips = () => {
+  if (config.clipOption === '10-15') return 15;
+  if (config.clipOption === '20-25') return 25;
+  if (config.clipOption === '35-40') return 40;
+  if (config.clipOption === 'custom') return config.customClipCount;
+  return 0;
+};
+const maxClips = getMaxClips();
+
 
     // Delivery multiplier
     let deliveryMultiplier = 1;
-    if (config.deliveryDays === 2) deliveryMultiplier = 1.3;
-    else if (config.deliveryDays === 1) deliveryMultiplier = 1.6;
+    if (config.deliveryDays === 2) deliveryMultiplier = 20;
+    else if (config.deliveryDays === 1) deliveryMultiplier = 50;
 
     // Revision cost
     let revisionCost = 0;
-    if (config.revisions === 3) revisionCost = 50;
-    else if (config.revisions === 5) revisionCost = 100;
+    if (config.revisions === 3) revisionCost = 10;
+    else if (config.revisions === 5) revisionCost = 20;
 
     // Effects cost
-    const effectsCost = config.selectedEffects.reduce((sum, effect) => sum + effect.price, 0);
+const effectsCost = config.selectedEffects.reduce(
+  (sum, effect) => sum + effect.price * maxClips,
+  0
+);
 
     // Additional features cost
-    const featuresCost = config.additionalFeatures.length * 25;
+    const featuresCost = config.additionalFeatures.length * 0;
 
-    const subtotal = basePrice * deliveryMultiplier + revisionCost + effectsCost + featuresCost;
+    const subtotal =  deliveryMultiplier + revisionCost + effectsCost + featuresCost;
     return Math.round(subtotal);
   };
 

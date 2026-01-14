@@ -20,7 +20,7 @@ export function RevisionSelector({ selectedRevisions, onSelect }: RevisionSelect
        
         <div>
           <h2 className="font-bold text-slate-900">Number of Revisions</h2>
-                    <p className="text-slate-600 text-sm">Select visual effects to enhance your videos</p>
+           <p className="text-slate-600 text-sm">How many rounds of edits do you need?</p>
 
      
         </div>

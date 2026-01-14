@@ -20,7 +20,7 @@ export function ClipSelector({ clipOption, customClipCount, onUpdate }: ClipSele
     <section className=" p-8   ">
       <div className="mb-6">
         <h2 className=" font-bold text-slate-900 mb-2">Number of Clips</h2>
-          <p className="text-slate-600 text-sm">Select visual effects to enhance your videos</p>
+          <p className="text-slate-600 text-sm">Select the number of clips you need edited</p>
     
       </div>
 

@@ -39,7 +39,7 @@ export function DeliverySelector({ selectedDays, onSelect }: DeliverySelectorPro
     <section className=" p-8   ">
       <div className="mb-6">
         <h2 className="font-bold text-slate-900 mb-2">Delivery Speed</h2>
-                  <p className="text-slate-600 text-sm">Select visual effects to enhance your videos</p>
+          <p className="text-slate-600 text-sm">Choose how fast you need your videos delivered</p>
 
       </div>
 

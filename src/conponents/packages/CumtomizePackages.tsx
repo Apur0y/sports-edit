@@ -53,40 +53,39 @@ export default function CustomizePackage() {
         <div className="flex flex-col lg:flex-row gap-8">
           {/* Left Column - Configuration Sections */}
           <div className="flex-1 flex lg:w-[70%] space-y-8 flex-col">
-            <div className='bg-white flex w-full'>
+            <div className='bg-white flex flex-col md:flex-row w-full '>
 
-            <ClipSelector
-              clipOption={config.clipOption}
-              customClipCount={config.customClipCount}
-              onUpdate={(clipOption, customClipCount) =>
-                updateConfig({ clipOption, customClipCount })
-              }
-            />
+              <ClipSelector
+                clipOption={config.clipOption}
+                customClipCount={config.customClipCount}
+                onUpdate={(clipOption, customClipCount) =>
+                  updateConfig({ clipOption, customClipCount })
+                }
+              />
 
-            <DeliverySelector
-              selectedDays={config.deliveryDays}
-              onSelect={(days) => updateConfig({ deliveryDays: days })}
-            />
+              <DeliverySelector
+                selectedDays={config.deliveryDays}
+                onSelect={(days) => updateConfig({ deliveryDays: days })}
+              />
 
-            <RevisionSelector
-              selectedRevisions={config.revisions}
-              onSelect={(revisions) => updateConfig({ revisions })}
-            />
+              <RevisionSelector
+                selectedRevisions={config.revisions}
+                onSelect={(revisions) => updateConfig({ revisions })}
+              />
             </div>
 
             <EffectSelector
-             selectedEffects={config.selectedEffects}
-             onToggle={(effect) => {
-               const isSelected = config.selectedEffects.some(
-                 (e) => e.id === effect.id
-               );
-               const newEffects = isSelected
-                 ? config.selectedEffects.filter((e) => e.id !== effect.id)
-                 : [...config.selectedEffects, effect];
-               updateConfig({ selectedEffects: newEffects });
-             }}
-           />
-            
+              selectedEffects={config.selectedEffects}
+              onToggle={(effect) => {
+                const isSelected = config.selectedEffects[0]?.id === effect.id;
+
+                updateConfig({
+                  selectedEffects: isSelected ? [] : [effect], 
+                });
+              }}
+            />
+
+
 
             <AdditionalFeatures
               selectedFeatures={config.additionalFeatures}
@@ -99,7 +98,7 @@ export default function CustomizePackage() {
               }}
             />
           </div>
-          
+
 
           {/* Right Column - Package Summary */}
           <div className="lg:w-[30%]">

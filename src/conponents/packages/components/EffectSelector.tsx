@@ -40,7 +40,7 @@ export function EffectSelector({ selectedEffects, onToggle }: EffectSelectorProp
           <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
             {effects.map((effect) => {
               const Icon = effectIcons[effect.id as keyof typeof effectIcons];
-              const isSelected = selectedEffects.some((e) => e.id === effect.id);
+             const isSelected = selectedEffects[0]?.id === effect.id;
 
               return (
                 <button
